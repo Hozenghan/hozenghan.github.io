@@ -1,0 +1,1401 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网络空间安全技术期末整理 | Hozenghan的Blog</title><meta name="author" content="Hozenghan"><meta name="copyright" content="Hozenghan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="基本情况  题型：  选择（20*1） 判断（10*1） 名词解释 简答题 设计题 综合分析题   关注小测验里的选择题  五次作业题会考一个大题  关注ppt里面红色的部分！   CH1-网络空间安全概述1.1.信息安全的基本目标&#x3D;&#x3D;CIA&#x3D;&#x3D;  机密性（Confidentiality） 完整性（Integrity） 可用性（Availability）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络空间安全技术期末整理">
+<meta property="og:url" content="http://hozenghan.github.io/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF_final/index.html">
+<meta property="og:site_name" content="Hozenghan的Blog">
+<meta property="og:description" content="基本情况  题型：  选择（20*1） 判断（10*1） 名词解释 简答题 设计题 综合分析题   关注小测验里的选择题  五次作业题会考一个大题  关注ppt里面红色的部分！   CH1-网络空间安全概述1.1.信息安全的基本目标&#x3D;&#x3D;CIA&#x3D;&#x3D;  机密性（Confidentiality） 完整性（Integrity） 可用性（Availability）">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://hozenghan.github.io/blog/images/profile.jpg">
+<meta property="article:published_time" content="2025-01-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-01-16T07:49:12.781Z">
+<meta property="article:author" content="Hozenghan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hozenghan.github.io/blog/images/profile.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "网络空间安全技术期末整理",
+  "url": "http://hozenghan.github.io/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF_final/",
+  "image": "http://hozenghan.github.io/blog/images/profile.jpg",
+  "datePublished": "2025-01-15T16:00:00.000Z",
+  "dateModified": "2025-01-16T07:49:12.781Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Hozenghan",
+      "url": "http://hozenghan.github.io/blog/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/blog/images/sun.png"><link rel="canonical" href="http://hozenghan.github.io/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF_final/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '网络空间安全技术期末整理',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/blog/images/profile.jpg" onerror="this.onerror=null;this.src='/blog/images/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 博客首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/blog/shuoshuo/"><i class="fa-fw fa fa-comments"></i><span> 分享</span></a></li><li><a class="site-page child" href="/blog/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/blog/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/blog/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-camera"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="https://hozenghan.github.io"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/blog/"><span class="site-name">Hozenghan的Blog</span></a><a class="nav-page-title" href="/blog/"><span class="site-name">网络空间安全技术期末整理</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 博客首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/blog/shuoshuo/"><i class="fa-fw fa fa-comments"></i><span> 分享</span></a></li><li><a class="site-page child" href="/blog/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/blog/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/blog/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-camera"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="https://hozenghan.github.io"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">网络空间安全技术期末整理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-01-15T16:00:00.000Z" title="发表于 2025-01-16 00:00:00">2025-01-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-01-16T07:49:12.781Z" title="更新于 2025-01-16 15:49:12">2025-01-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/blog/categories/SCU/">SCU</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/blog/categories/SCU/2024-2025%E5%AD%A6%E5%B9%B4/">2024-2025学年</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/blog/categories/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/">网络空间安全技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><p>基本情况</p>
+<ul>
+<li><p>题型：</p>
+<ul>
+<li>选择（20*1）</li>
+<li>判断（10*1）</li>
+<li>名词解释</li>
+<li>简答题</li>
+<li>设计题</li>
+<li>综合分析题</li>
+</ul>
+</li>
+<li><p>关注小测验里的选择题</p>
+</li>
+<li><p>五次作业题会考一个大题</p>
+</li>
+<li><p>关注ppt里面红色的部分！</p>
+</li>
+</ul>
+<h1 id="CH1-网络空间安全概述"><a href="#CH1-网络空间安全概述" class="headerlink" title="CH1-网络空间安全概述"></a>CH1-网络空间安全概述</h1><h2 id="1-1-信息安全的基本目标"><a href="#1-1-信息安全的基本目标" class="headerlink" title="1.1.信息安全的基本目标"></a>1.1.信息安全的基本目标</h2><p>&#x3D;&#x3D;CIA&#x3D;&#x3D;</p>
+<ul>
+<li>机密性（Confidentiality）</li>
+<li>完整性（Integrity）</li>
+<li>可用性（Availability）</li>
+</ul>
+<h2 id="1-2-什么是信息安全"><a href="#1-2-什么是信息安全" class="headerlink" title="1.2.什么是信息安全"></a>1.2.什么是信息安全</h2><p>信息本身的机密性（Confidentiality）、完整性（Integrity）和可用性（Availability）的保持（一分），即<strong>防止未经授权使用信息</strong>（一分）、<strong>防止对信息的非法修改和破坏</strong>（一分）、<strong>确保及时可靠地使用信息</strong>（一分）。</p>
+<ul>
+<li>机密性：确保信息没有非授权的泄漏，不被非授权的个人、组织和计算机程序使用</li>
+<li>完整性：确保信息没有遭到篡改和破坏</li>
+<li>可用性：确保拥有授权的用户或程序可以及时、正常使用信息</li>
+</ul>
+<h2 id="1-3-网络安全的基本定义-组成"><a href="#1-3-网络安全的基本定义-组成" class="headerlink" title="1.3.网络安全的基本定义+组成"></a>1.3.网络安全的基本定义+组成</h2><h3 id="1-3-1-网络安全的四个要素（网络空间的组成）"><a href="#1-3-1-网络安全的四个要素（网络空间的组成）" class="headerlink" title="1.3.1.网络安全的四个要素（网络空间的组成）"></a>1.3.1.网络安全的四个要素（网络空间的组成）</h3><h4 id="1-3-1-1国家网络安全的四个要素"><a href="#1-3-1-1国家网络安全的四个要素" class="headerlink" title="1.3.1.1国家网络安全的四个要素"></a>1.3.1.1国家网络安全的四个要素</h4><p>设施、用户、操作、数据</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-23 21.00.35.png" alt="截屏2024-12-23 21.00.35" style="zoom: 25%;" />
+
+<h4 id="1-3-1-2-网络空间的组成"><a href="#1-3-1-2-网络空间的组成" class="headerlink" title="1.3.1.2.网络空间的组成"></a>1.3.1.2.网络空间的组成</h4><p>网络空间四要素：网络空间载体（设施）；网络空间资源（数据）； 网络活动主体（用户）；网络活动形式（操作）</p>
+<ul>
+<li>网络空间载体：设施，信息通信技术系统的集合</li>
+<li>网络操作对象：数据，表达人类所能理解的意图的信号状态</li>
+<li>网络活动主体：用户，网络活动的主体要素，属于人的代理</li>
+<li>网络活动形式：操作，对数据的加工、存储、传输、展示等服务形式</li>
+</ul>
+<h3 id="1-3-2-网络空间的一般性定义"><a href="#1-3-2-网络空间的一般性定义" class="headerlink" title="1.3.2.&#x3D;&#x3D;网络空间的一般性定义&#x3D;&#x3D;"></a>1.3.2.&#x3D;&#x3D;网络空间的一般性定义&#x3D;&#x3D;</h3><blockquote>
+<p>一般性定义是根据《国家网络空间安全战略》给出的定义</p>
+</blockquote>
+<p>网络空间是一种<strong>人造的电磁空间</strong>，其以互联网、各种通信系统与电信网、各种传播系统与广电网、各种计算机系统、各类关键工业设施中的嵌入式处理器和控制器等<strong>信息通信技术基础设施</strong>为载体，<strong>用户</strong>通过在其上对<strong>数据</strong>进行创造、存储、改变、传输、使用、展示等<strong>操作</strong>，以实现特定的信息通信技术活动。</p>
+<h2 id="1-4-网络空间安全的四层次模型"><a href="#1-4-网络空间安全的四层次模型" class="headerlink" title="1.4.网络空间安全的四层次模型"></a>1.4.网络空间安全的四层次模型</h2><p>任何信息系统都会涉及四个层面： 电磁设备、电子信息系统、运行数据、系统应用</p>
+<p>从上往下：</p>
+<ul>
+<li>应用层的安全：应对在信息应用的过程中所形成的安全问题，包括内容安全、应用安全等</li>
+<li>数据层的安全：应对在网络空间中处理数据的同时所带来的安全问题，包括数据安全、身份安全、隐私保护等。</li>
+<li>系统层的安全：应对在网络空间中信息系统自身所面对的安全问题，包括网络安全、软件安全等。</li>
+<li>设备层的安全：应对在网络空间中信息系统设备所面对的安全问题，包括物理安全、环境安全、设备安全等。</li>
+</ul>
+<h1 id="CH2-网络空间安全风险及风险管理"><a href="#CH2-网络空间安全风险及风险管理" class="headerlink" title="CH2-网络空间安全风险及风险管理"></a>CH2-网络空间安全风险及风险管理</h1><h2 id="2-1-什么是网络空间安全风险管理（定义）"><a href="#2-1-什么是网络空间安全风险管理（定义）" class="headerlink" title="2.1.什么是网络空间安全风险管理（定义）"></a>2.1.什么是网络空间安全风险管理（定义）</h2><blockquote>
+<p>了解风险+控制风险&#x3D;管理风险</p>
+<p>风险管理是出现安全问题的原因。</p>
+</blockquote>
+<p><strong>定义一</strong>：（GB&#x2F;Z 24364《信息安全风险管理指南》 ）信息安全风险管理是识别、控制、消除或最小化可能影响系统资源的<u>不确定因素</u>的过程。</p>
+<p>定义二：在组织机构内部识别、优化、管理风险， 使风险降低到可接受水平的过程。</p>
+<h2 id="2-2-风险评估工具"><a href="#2-2-风险评估工具" class="headerlink" title="2.2.风险评估工具"></a>2.2.风险评估工具</h2><p>由风险评估工具得到风险评估的结果</p>
+<ul>
+<li>风险评估与管理工具（标准、知识、模型）<ul>
+<li>基于<u>标准</u>的工具，如基于NIST SP 800-30或ISO 27005开发的工具</li>
+<li>基于<u>知识</u>的工具，综合各种风险分析方法，形成知识库，以此为基础完成综合评估</li>
+<li>基于<u>模型</u>的工具，对典型系统的资产、威胁、脆弱性建立量化或半量化的模型</li>
+</ul>
+</li>
+<li>系统基础平台风险评估工具<ul>
+<li><u>脆弱性扫描工具</u>（漏扫）：基于网络的扫描器、基于主机的扫描器、分布式网络扫描器、数据库脆弱性扫描器</li>
+<li><u>渗透性测试工具</u>：黑客工具、脚本文件</li>
+</ul>
+</li>
+<li>风险评估辅助工具<ul>
+<li>检查列表、入侵检测系统（IDS）、安全审计工具、拓扑发现工具和资产信息收集系统，用于评估过程参考的评估指标库、知识库、漏洞库、算法库和模型库</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-3-网络空间安全风险术语"><a href="#2-3-网络空间安全风险术语" class="headerlink" title="2.3.网络空间安全风险术语"></a>2.3.网络空间安全风险术语</h2><ul>
+<li><p>资产（Asset）</p>
+</li>
+<li><p>威胁源（Threat Agent）</p>
+</li>
+<li><p>威胁（ Threat ）</p>
+</li>
+<li><p>脆弱性（Vunerability）</p>
+</li>
+<li><p>控制措施（Countermeasure,safeguard,control）</p>
+</li>
+<li><p>可能性（Likelihood,Probability）</p>
+</li>
+<li><p>影响（ Impact,loss ）</p>
+</li>
+<li><p>风险（ Risk）</p>
+</li>
+<li><p>残余风险（Residental Risk）</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>资产：有价值的</li>
+<li>脆弱性：与资产有关的弱点或安全隐患，是造成风险的内因（eg.代码缺陷）。脆弱性本身并不对资产构成危害，但是满足一定条件时，脆弱性会被威胁源利用恰当的威胁方式对资产造成不良后果（形成风险？</li>
+<li>控制措施：防范威胁，降低风险的措施。eg.部署防火墙</li>
+<li>可能性：威胁源利用脆弱性造成不良后果的可能性</li>
+<li>影响：威胁源利用脆弱性造成不良后果的程度大小</li>
+<li>风险：威胁源可能采用恰当的威胁方式利用脆弱性造成不良后果</li>
+<li>残余风险：采取了安全措施后仍然可能存在的风险（综合考虑成本与效益）</li>
+</ul>
+</blockquote>
+<h3 id="2-3-1-资产"><a href="#2-3-1-资产" class="headerlink" title="2.3.1.资产"></a>2.3.1.资产</h3><p>（什么是资产？列举一些事物，来判断什么是资产）</p>
+<p><strong>定义</strong>：资产是任何对组织有价值的东西，是要保护的对象。</p>
+<p><strong>资产以多种形式存在（多种分类方法）</strong></p>
+<ul>
+<li>物理的（如计算设备、网络设备和存储介质等）和逻辑的（如体 系结构、通信协议、计算程序和数据文件等）；</li>
+<li>硬件的（如计算机主板、机箱、显示器、键盘和鼠标等）和软件的 （如操作系统软件、数据库管理软件、工具软件和应用软件等）；</li>
+<li><u>有形的（如机房、设备和人员等）和无形的（如品牌、信心和名誉等）</u>；</li>
+<li><u>静态的（如设施和规程等）和动态的（如人员和过程等）</u>；</li>
+<li>技术的（如计算机硬件、软件和固件等）和管理的（如业务目标 、战略、策略、规程、过程、计划和人员等）等</li>
+</ul>
+<h3 id="2-3-2-威胁"><a href="#2-3-2-威胁" class="headerlink" title="2.3.2.威胁"></a>2.3.2.威胁</h3><p>概念：可能导致组织机构出现网络安全事件和信息资源损失的活动，威胁是一个<strong>动作</strong>，<u>威胁源是威胁动作的发起者</u></p>
+<ul>
+<li>内部人员威胁</li>
+<li>黑客渗透</li>
+<li>木马后门</li>
+<li>病毒和蠕虫</li>
+<li>流氓软件</li>
+<li>拒绝服务</li>
+<li>社会工程</li>
+<li>地震、雷雨、失火</li>
+<li>供电中断</li>
+<li>网络通信故障</li>
+<li>硬件故障</li>
+<li>系统漏洞</li>
+</ul>
+<h3 id="2-3-3-脆弱性（漏洞-vulnerability）"><a href="#2-3-3-脆弱性（漏洞-vulnerability）" class="headerlink" title="2.3.3.脆弱性（漏洞-vulnerability）"></a>2.3.3.脆弱性（漏洞-vulnerability）</h3><p>概念：与信息资产有关的弱点或安全隐患。</p>
+<p>造成风险的内因，脆弱性是固有的，本身一定会存在漏洞，但是没被利用则不会形成安全事件。</p>
+<p>脆弱性本身并不对资产构成危害，但是在一定条件得满足时，脆弱性会被威胁源利用恰当的威胁方式对信息资产造成危害。</p>
+<p><strong>脆弱性举例</strong></p>
+<ul>
+<li>系统程序代码缺陷</li>
+<li>系统设备安全配置错误</li>
+<li>系统操作流程有缺陷</li>
+<li>维护人员安全意识不足</li>
+</ul>
+<h3 id="2-3-4-控制措施"><a href="#2-3-4-控制措施" class="headerlink" title="2.3.4.控制措施"></a>2.3.4.控制措施</h3><p>根据安全需求部署，用来防范威胁，降低风险的措施。</p>
+<p>举例</p>
+<ul>
+<li>部署防火墙、入侵检测、审计系统</li>
+<li>测试环节</li>
+<li>操作审批环节</li>
+<li>应急体系</li>
+<li>终端U盘管理制度</li>
+</ul>
+<h3 id="2-3-5-风险"><a href="#2-3-5-风险" class="headerlink" title="2.3.5.&#x3D;&#x3D;风险&#x3D;&#x3D;"></a>2.3.5.&#x3D;&#x3D;风险&#x3D;&#x3D;</h3><p><strong><u>指威胁源采用恰当的威胁方式利用脆弱性造成不良后果。</u></strong></p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-24 11.39.08.png" alt="截屏2024-12-24 11.39.08" style="zoom: 25%;" />
+
+<p>如：网站存在SQL注入漏洞，普通攻击者利用自动化攻击工具很容易控制网站，修改网站内容，从而损害国家政府部门声誉。</p>
+<p><strong>概念</strong>：</p>
+<ol>
+<li><p><strong><u>GB&#x2F;T 20984的定义：网络空间安全风险是人为或自然的威胁利用信息系统及其管理体系中存在的脆弱性导致安全事件的发生及其对组织造成的影响。</u></strong></p>
+</li>
+<li><p>网络空间安全风险是指一种特定的威胁利用一种或一组脆弱性造成组织的资产损失或损害的可能性。</p>
+</li>
+<li><p>网络空间安全风险是指信息资产的机密性、完整性和可用性遭到破坏的可能性。</p>
+</li>
+<li><p><u>网络空间安全风险只考虑那些对组织有<strong>负面</strong>影响的事件。</u>（会考判断题）</p>
+</li>
+</ol>
+<p>这些定义强调了网络空间安全风险的多方面因素，包括威胁的来源、脆弱性的利用、资产的损失或损害，以及对组织的具体影响。</p>
+<h3 id="2-3-6-残余风险"><a href="#2-3-6-残余风险" class="headerlink" title="2.3.6.残余风险"></a>2.3.6.残余风险</h3><p>概念：</p>
+<ul>
+<li><p><u>指采取了安全措施后，信息系统仍然可能存在的风险。</u></p>
+</li>
+<li><p>有些残余风险是在综合<u>考虑了安全成本与效益后</u>不去控制的风险（风险管理是要付出代价的）</p>
+</li>
+<li><p>残余风险应受到密切监视，它<u>可能会在将来诱发新的安全事件</u>（此一时彼一时）</p>
+</li>
+</ul>
+<p>举例</p>
+<ul>
+<li>风险列表中有10类风险，根据风险成本效益分析，只有前8项需要控制，则另2项为残余风险，一段时间内系统处于风险可接受水平。</li>
+</ul>
+<h2 id="2-4-常用的四类风险处置方法"><a href="#2-4-常用的四类风险处置方法" class="headerlink" title="2.4.常用的四类风险处置方法"></a>2.4.常用的四类风险处置方法</h2><ul>
+<li>减低风险</li>
+<li>转移风险</li>
+<li>规避风险</li>
+<li>接受风险</li>
+</ul>
+<h2 id="2-5-风险分析"><a href="#2-5-风险分析" class="headerlink" title="2.5.风险分析"></a>2.5.风险分析</h2><img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-24 11.44.34.png" alt="截屏2024-12-24 11.44.34" style="zoom: 25%;" />
+
+
+
+<h2 id="2-6-国产化替代"><a href="#2-6-国产化替代" class="headerlink" title="2.6.国产化替代"></a>2.6.国产化替代</h2><p><strong>国产化替代究竟替什么</strong>？</p>
+<ul>
+<li>答案是<strong>替代被垄断的国外产品。</strong></li>
+</ul>
+<p>在第十四届中国（南京）国际软件产品和信息服务交易博览会上，倪光南院士提到，目前信息技术国产化替代在不同领域正在加速推进。这包括：</p>
+<ul>
+<li><strong>国产桌面计算机技术体系对Wintel体系的替代；</strong></li>
+<li><strong>高端服务器和数据库对“IOE”的替代。</strong></li>
+</ul>
+<blockquote>
+<p>这里的“Wintel体系”指的是微软的Windows操作系统和英特尔的处理器技术体系，</p>
+<p>而“IOE”通常指的是IBM的硬件（大型计算机）、甲骨文（Oracle）的数据库软件以及EMC的存储设备。</p>
+</blockquote>
+<p>国产化替代的目的是减少对这些国外产品的依赖，推动国内信息技术产业的发展。</p>
+<p>**为什么要国产化替代：**自主可控，规避依赖导致的风险。</p>
+<h1 id="CH3-信息与网络空间安全保障"><a href="#CH3-信息与网络空间安全保障" class="headerlink" title="CH3-信息与网络空间安全保障"></a>CH3-信息与网络空间安全保障</h1><h2 id="3-1-信息系统安全保障"><a href="#3-1-信息系统安全保障" class="headerlink" title="3.1.信息系统安全保障"></a>3.1.信息系统安全保障</h2><p>信息系统安全保障是在信息系统的<strong>整个生命周期</strong>中，从<strong>技术、管理、工程和人员</strong>等方面提出安全保障要求，确保信息系统的<strong>机密性、完整性和可用性</strong>，降低安全风险到可接受的程度，从而保障系统实现组织机构的使命。</p>
+<h2 id="3-2-安全模型的概念"><a href="#3-2-安全模型的概念" class="headerlink" title="3.2.安全模型的概念"></a>3.2.安全模型的概念</h2><h3 id="3-2-1-什么是网络空间安全模型"><a href="#3-2-1-什么是网络空间安全模型" class="headerlink" title="3.2.1.什么是网络空间安全模型"></a>3.2.1.什么是网络空间安全模型</h3><ul>
+<li>通过建模的思想来解决网络安全管理问题，有效抵御外部攻击，保障网络安全。</li>
+<li>安全模型用于精确和形式地描述信息系统的安全特征，解释系统安全相关行为。</li>
+</ul>
+<h3 id="3-2-2-为什么需要安全模型"><a href="#3-2-2-为什么需要安全模型" class="headerlink" title="3.2.2.为什么需要安全模型"></a>3.2.2.为什么需要安全模型</h3><ul>
+<li>能准确地描述安全的<u>重要方面</u>与系统行为的关系。（模型的处理方式，更能抓住重点）</li>
+<li>能提高对成功实现关键安全需求的理解<u>层次</u>。（层次化、分段化的模型利于问题的处理）</li>
+<li>从中开发出一套安全性评估<u>准则</u>，和关键的描述变量。（标准化、规则化处理）</li>
+</ul>
+<h2 id="3-3-PDR演变"><a href="#3-3-PDR演变" class="headerlink" title="3.3.PDR演变"></a>3.3.PDR演变</h2><h3 id="3-3-1-PDR"><a href="#3-3-1-PDR" class="headerlink" title="3.3.1.PDR"></a>3.3.1.PDR</h3><blockquote>
+<p>出发点：任何防护措施都是基于时间的，是可以被攻破的</p>
+</blockquote>
+<p>PDR：protect+detect+response，强调落实反应</p>
+<h3 id="3-3-2-PDRR"><a href="#3-3-2-PDRR" class="headerlink" title="3.3.2.PDRR"></a>3.3.2.PDRR</h3><p>PDRR：protect+detect+react+<strong>restore</strong>，强调自动故障恢复能力</p>
+<ul>
+<li>保护（Protect）<br>作为基础，将保护视为活动过程。</li>
+<li>检测（Detect）<br>用检测手段发现安全漏洞。</li>
+<li>反应（React）<br>采取应急响应措施对抗入侵。</li>
+<li><strong>恢复（Restore）</strong><br>系统被入侵后，采取措施将其恢复到正常状态。</li>
+</ul>
+<h3 id="3-3-3-分布式动态主动模型PPDR"><a href="#3-3-3-分布式动态主动模型PPDR" class="headerlink" title="3.3.3.分布式动态主动模型PPDR"></a>3.3.3.分布式动态主动模型PPDR</h3><p>PPDR：<strong>policy</strong>+protect+detect+response，强调控制和对抗（系统安全的动态性），以安全检测、漏洞监测和自适应填充“安全间隙”为循环，特别考虑人为的管理因素。</p>
+<blockquote>
+<p>在整体的安全策略的控制和指导下，综合运用防护工具（如防火墙、身份鉴别、加密等）的同时，利用检测工具（如漏洞评估、入侵检测系统）了解和评估系统的安全状态，通过适当的响应将系统调整到一个比较安全的状态。保护、检测和响应组成了一个完整的、动态的安全循环。</p>
+</blockquote>
+<ul>
+<li>policy：策略，<strong>模型的核心</strong>；所有的防护、检测、响应都是依据安全策略实施的；策略体系的建立包括安全策略的制定、评估与执行等。策略包括访问控制策略、加密通信策略、身份认证策略、备份恢复策略……</li>
+<li>protection：防护，通过传统的静态安全技术和方法提高网络的防护能力，主要包括：访问控制技术、信息加密技术、身份鉴别技术……</li>
+<li>detect：检测，利用检测工具，监视、分析、审计网络活动，了解判断网络系统的安全状态；使安全防护从被动防护演进到<strong>主动防御</strong>，是整个模型<strong>动态性的体现</strong>；如实时监控、报警……</li>
+<li>response：反应，在检测到安全漏洞和安全事件时，通过及时的响应措施将网络系统的安全性调整到风险最低的状态。评估系统受到的危害与损失，恢复系统功能和数据，启动备份系统等。主要方法包括：关闭服务、跟踪、反击……</li>
+</ul>
+<p>（<strong>关注时间关系</strong>）</p>
+<p><strong>数学法则：Pt &gt; Dt + Rt</strong></p>
+<ul>
+<li><p>Pt是防护时间（有效防御攻击的时间）</p>
+</li>
+<li><p>Dt是检测时间（发起攻击到检测到的时间）</p>
+</li>
+<li><p>Rt是反应时间（检测出攻击到处理完成时间）</p>
+</li>
+<li><p>Et是暴露时间</p>
+<ul>
+<li><p>如果Pt＞Dt＋Rt，那么系统是安全的。</p>
+</li>
+<li><p>如果Pt＜Dt＋Rt，那么Et＝(Dt＋Rt)－Pt。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-4-IATF-深度防御保障模型"><a href="#3-4-IATF-深度防御保障模型" class="headerlink" title="3.4.IATF-深度防御保障模型"></a>3.4.IATF-深度防御保障模型</h2><blockquote>
+<ol>
+<li>代表理论：深度防御</li>
+<li>三个核心要素。<br>1）人(People)<br>信息保障体系的核心，是第一位的要素，同时也是最脆弱的。<br>2）技术（Technology）<br>实现信息保障的重要手段。<br>动态的技术体系：防护、检测、响应、恢复<br>3）操作(Operation)<br>是将各方面技术紧密结合的主动过程，构成安全保障的主动防御体系。</li>
+<li>四个信息安全保障领域（三保护一支撑）<br>1）本地计算环境<br>2）区域边界<br>3）网络和基础设施<br>4）支撑性基础设施</li>
+</ol>
+</blockquote>
+<p>信息保障技术框架（Information Assurance  Technical Framework，IATF）</p>
+<p>NSA制定的，为保护美国政府和工业界的信息与信息技 术设施提供技术指南。</p>
+<p>IATF的<strong>代表理论</strong>为“<u>深度防御（Defense-in-Depth）</u>”。</p>
+<p>在关于实现信息保障目标的过程和方法上，IATF论述了**<u>系统工程、系统采购、风险管理、鉴别和鉴定以及生命周期支持等过程</u>**，指出了一条较为清晰的建设信息保障体系的路子。</p>
+<h2 id="3-5-何谓“深度防御”"><a href="#3-5-何谓“深度防御”" class="headerlink" title="3.5.何谓“深度防御”"></a>3.5.何谓“深度防御”</h2><ul>
+<li><p>IATF强调**<u>人、技术、操作</u>**这三个核心要素，从多种不同的角度对信息系统进行防护。</p>
+</li>
+<li><p>IATF关注四个信息安全保障领域<u>（三保护一支撑）</u></p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-26 20.27.50.png" alt="截屏2024-12-26 20.27.50" style="zoom: 25%;" />
+
+<ul>
+<li><p>本地计算环境</p>
+</li>
+<li><p>区域边界</p>
+</li>
+<li><p>网络和基础设施</p>
+</li>
+<li><p>支撑性基础设施</p>
+<ul>
+<li>保护了本地计算环境、区域边界、网络和基础设施，来构建一个支撑环境以实现三保护</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>在此基础上，对信息信息系统就可以做到多层防护，实现组织的任务&#x2F;业务运作。这样的防护被称为 “<u>深度防护战略（Defense-in-Depth Strategy）</u>”。</p>
+<h2 id="3-6-IATF的三要素"><a href="#3-6-IATF的三要素" class="headerlink" title="3.6.IATF的三要素"></a>3.6.IATF的三要素</h2><ul>
+<li>人（People）：<ul>
+<li>信息保障体系的<strong>核心，是第一位的要素</strong>，同时也是最脆弱的。</li>
+<li>基于这样的认识，安全管理在安全保障体系中愈显重要，包括：<ul>
+<li>意识培训、组织管理、技术管理、操作管理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>技术（Technology）：<ul>
+<li>技术是实现信息保障的<strong>重要手段</strong>。</li>
+<li>动态的技术体系：<ul>
+<li>防护、检测、响应、恢复</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>操作（Operation）：<ul>
+<li>也叫<strong>运行</strong>，构成安全保障的主动防御体系。</li>
+<li>也是将各方面技术紧密结合在一起的主动的过程，包括：<ul>
+<li>风险评估、安全监控、安全审计</li>
+<li>跟踪告警、入侵检测、响应恢复</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-7-IATF的安全需求划分"><a href="#3-7-IATF的安全需求划分" class="headerlink" title="3.7.IATF的安全需求划分"></a>3.7.IATF的安全需求划分</h2><p>IATF定义了四个主要的技术焦点领域：</p>
+<ul>
+<li>本地计算环境</li>
+<li>区域边界</li>
+<li>网络和基础设施</li>
+<li>支撑性基础设施</li>
+</ul>
+<p>这四个领域构成了完整的信息保障体系所涉及的范围。</p>
+<p>在每个领域范围内，IATF都描述了其特有的安全需求和相应的可供选择的技术措施。这些领域共同确保了信息系统的安全性和可靠性，通过在不同层面上实施安全措施来保护信息资产。</p>
+<h2 id="3-8-DDOS事件处理"><a href="#3-8-DDOS事件处理" class="headerlink" title="3.8.DDOS事件处理"></a>3.8.DDOS事件处理</h2><p><strong>SYN Flood攻击：</strong></p>
+<p>使用抗DDOS设备或其他专用防护设备来进行防护，**<u>默认参数下</u>**就可以达到比较好的效果。</p>
+<p>（图片勘误：“SYS请求”和“SYS包”系笔误，应该是“SYN请求”和“SYN包”）</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-24 14.33.29.png" alt="截屏2024-12-24 14.33.29" style="zoom: 25%;" />
+
+
+
+<h2 id="3-9-常见应急事件"><a href="#3-9-常见应急事件" class="headerlink" title="3.9.常见应急事件"></a>3.9.常见应急事件</h2><p>根据主机收到的攻击的表象可将木马病毒分为四类：</p>
+<ol>
+<li><p><strong>勒索病毒</strong>（也叫勒索木马）</p>
+<ul>
+<li>特征：磁盘文件被加密，一旦完成勒索过程则无法恢复文件。</li>
+<li>防御策略：以预防为主，安装杀毒软件，做好主机防黑工作，及时打补丁，对重要文件要及时隔离备份。</li>
+</ul>
+</li>
+<li><p><strong>挖矿木马</strong></p>
+<ul>
+<li>特征：CPU和GPU异常占用过高，且有对矿池地址的解析。</li>
+<li>实现方式：可有落地文件实现，也可通过WMI等无落地文件实现。</li>
+</ul>
+</li>
+<li><p><strong>远控木马</strong></p>
+<ul>
+<li>特点：一直是APT（高级持续性威胁）攻击的主流，复杂程度高。</li>
+<li>功能：集成了攻击模块、控制模块、持久化模块等，且有C2（命令与控制）服务器。</li>
+</ul>
+</li>
+<li><p><strong>普通木马</strong></p>
+<ul>
+<li>定义：指除上述类型之外的其他木马类型。</li>
+</ul>
+</li>
+</ol>
+<h1 id="CH4-网络空间安全技术体系与技术"><a href="#CH4-网络空间安全技术体系与技术" class="headerlink" title="CH4-网络空间安全技术体系与技术"></a>CH4-网络空间安全技术体系与技术</h1><h2 id="4-1-信息系统安全体系框架"><a href="#4-1-信息系统安全体系框架" class="headerlink" title="4.1.信息系统安全体系框架"></a>4.1.信息系统安全体系框架</h2><p>信息系统安全的<u>总需求</u>是<strong>物理安全、网络安全、 信息内容安全、应用系统安全和安全管理的</strong>总和</p>
+<p>安全的<u>最终目标</u>是确保信息的<strong>机密性、完整性、可用性、可控性和抗抵赖性</strong>，以及<strong>信息系统主体 (包括用户、团体、社会和国家)对信息资源的控制</strong>。</p>
+<p>完整的信息系统安全体系框架由<strong>技术体系、组织机构体系和管理体系</strong>共同构建</p>
+<ul>
+<li>技术体系<br>物理安全技术、系统安全技术</li>
+<li>组织机构体系<br>机构、岗位、人事三个模块</li>
+<li>管理体系<br>法律管理、制度管理、培训管理<br><del>三分技术，七分管理；</del>（这种说法是不太合适的！要说管理和技术并重）管理与技术并重。</li>
+</ul>
+<h2 id="4-2-网络空间安全体系框架"><a href="#4-2-网络空间安全体系框架" class="headerlink" title="4.2.网络空间安全体系框架"></a>4.2.网络空间安全体系框架</h2><p>管理体系管理是信息系统安全的灵魂。</p>
+<p>信息系统安全的管理体系由<u>法律管理、制度管理和培训管理</u>三个部分组成。（<del>三分技术，七分管理；</del>）<strong>管理与技术并重</strong>。</p>
+<ul>
+<li>法律管理是根据相关的国家法律、法规对信息系统 主体及其与外界关联行为的规范和约束。 </li>
+<li>制度管理是信息系统内部依据系统必要的国家、团 体的安全需求制定的一系列内部规章制度。 </li>
+<li>培训管理是确保信息系统安全的前提。</li>
+</ul>
+<h2 id="4-3-数据完整性机制"><a href="#4-3-数据完整性机制" class="headerlink" title="4.3.数据完整性机制"></a>4.3.数据完整性机制</h2><p>完整性检测，不符合完整性检测要求则重发数据</p>
+<p>定义：数据完整性是<strong>防止</strong>非法实体对交换数据的修改、插入、替换和删除，或者如果被修改、插入、替换和删除时<strong>可以被检测出来</strong>。数据完整性可以通过消息认证模式来保证。</p>
+<p>完整性机制分类：</p>
+<ul>
+<li>通过密码学提供完整性</li>
+<li>通过上下文提供完整性</li>
+<li>通过探测和确认提供完整性</li>
+<li>通过阻止提供完整性</li>
+</ul>
+<h2 id="4-4-数字签名机制"><a href="#4-4-数字签名机制" class="headerlink" title="4.4.数字签名机制"></a>4.4.数字签名机制</h2><p>传统签名的基本特点：</p>
+<ul>
+<li>能与被签的文件在物理上不可分割</li>
+<li>签名者不能否认自己的签名</li>
+<li>签名不能被伪造</li>
+<li>容易被验证</li>
+</ul>
+<p><strong>数字签名的基本要求：</strong></p>
+<ul>
+<li>能与所签文件“绑定”</li>
+<li>签名者不能否认自己的签名</li>
+<li>签名不能被伪造</li>
+<li>容易被验证</li>
+</ul>
+<p><strong>数字签名的特性：</strong></p>
+<ul>
+<li><p>不可伪造性</p>
+<ul>
+<li>没有私钥，很难伪造一个合法的数字签名。</li>
+</ul>
+</li>
+<li><p>抗抵赖性</p>
+<ul>
+<li>对普通数字签名，任何人可用签名者的公钥验证签名的有效性。</li>
+</ul>
+</li>
+<li><p>保证消息完整性</p>
+<ul>
+<li>可以防止消息被篡改。</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-5-公钥加密模型"><a href="#4-5-公钥加密模型" class="headerlink" title="4.5.公钥加密模型"></a>4.5.公钥加密模型</h2><img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-24 15.08.25.png" alt="截屏2024-12-24 15.08.25" style="zoom: 25%;" />
+
+
+
+<h2 id="4-6-消息鉴别码"><a href="#4-6-消息鉴别码" class="headerlink" title="4.6.消息鉴别码"></a>4.6.消息鉴别码</h2><ul>
+<li><p>在网路通信中，有一些针对消息内容的攻击方法（面临的风险）：</p>
+<ul>
+<li>伪造消息</li>
+<li>窜改消息内容</li>
+<li>改变消息顺序</li>
+<li>消息重放或者延迟</li>
+</ul>
+</li>
+<li><p>消息认证：对收到的消息进行验证，确保消息确实是来自声称的发送方，并且没有被修改过。</p>
+<ul>
+<li>如果在消息中加入时间及顺序信息，则可以完成对时间和顺序的鉴别，增强消息的安全性。</li>
+</ul>
+</li>
+</ul>
+<p>消息鉴别的三种方式：</p>
+<ul>
+<li><p>Message encryption（消息加密）：用整个消息的密文作为鉴别标识</p>
+<ul>
+<li>接收方必须能够识别错误。</li>
+</ul>
+</li>
+<li><p>Hash function（哈希函数）：一个公开函数将任意长度的消息映射到一个固定长度的散列值，作为鉴别标识</p>
+</li>
+<li><p>MAC（消息认证码）：一个公开函数，加上一个密钥产生一个固定长度的值作为鉴别标识。</p>
+<ul>
+<li><p>步骤1: A根据要发送的消息M0，利用密钥K通过MAC产生函数C产生MAC0&#x3D;Ck(M0);</p>
+<p> 步骤2: A将M0和MAC0合在一起，并通过网络发送到B;</p>
+<p> 步骤3: B收到信息后，并将二者分开，设为M1和MAC1;</p>
+<p> 步骤4: B利用密钥K对收到的信息M1用与A相同的MAC产生函数C重新计算M1的验证码，设为MAC2，</p>
+<p> 步骤5: B比较MAC2和MAC1是否相同，如果相等，B断定数据是完整的，如果不相等，则B断定数据遭到篡改。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>通过消息鉴别码**<u>对数据完整性</u>**进行验证的技术实现思路：</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-24 15.12.09.png" alt="截屏2024-12-24 15.12.09" style="zoom: 25%;" />
+
+
+
+<h1 id="CH5-鉴别机制与技术"><a href="#CH5-鉴别机制与技术" class="headerlink" title="CH5-鉴别机制与技术"></a>CH5-鉴别机制与技术</h1><h2 id="5-1-对身份鉴别系统的要求"><a href="#5-1-对身份鉴别系统的要求" class="headerlink" title="5.1.对身份鉴别系统的要求"></a>5.1.对身份鉴别系统的要求</h2><p> （1）验证者正确识别合法申请者的概率极大化。</p>
+<p> （2）不具有可传递性（Transferability)</p>
+<p> （3）攻击者伪装成申请者欺骗验证者成功的概率要小到可以忽略的程度</p>
+<p> （4）计算有效性</p>
+<p> （5）通信有效性</p>
+<p> （6）秘密参数能安全存储</p>
+<p>（补充点别太在意）</p>
+<h2 id="5-2-实现身份鉴别的途径"><a href="#5-2-实现身份鉴别的途径" class="headerlink" title="5.2.实现身份鉴别的途径"></a>5.2.实现身份鉴别的途径</h2><p>设计依据：安全水平、系统通过率、用户可接受性、成本等。</p>
+<ul>
+<li>基于你所知道的（What you know ）<ul>
+<li><strong>知识、口令、密码</strong></li>
+</ul>
+</li>
+<li>基于你所拥有的（What you have ）<ul>
+<li><strong>身份证、信用卡、钥匙、智能卡、令牌等</strong></li>
+</ul>
+</li>
+<li>基于你的个人特征（What you are）<ul>
+<li><strong>指纹，笔迹，声音，手型，脸型，视网膜，虹膜</strong></li>
+</ul>
+</li>
+<li>双因素、多因素认证</li>
+</ul>
+<h2 id="5-3-基于质询－应答的身份鉴别技术"><a href="#5-3-基于质询－应答的身份鉴别技术" class="headerlink" title="5.3.&#x3D;&#x3D;基于质询－应答的身份鉴别技术&#x3D;&#x3D;"></a>5.3.&#x3D;&#x3D;基于质询－应答的身份鉴别技术&#x3D;&#x3D;</h2><p>这是第四级身份鉴别</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/image-20241224220703542.png" alt="image-20241224220703542" style="zoom: 25%;" />
+
+<p>基于质询—应答的身份鉴别在鉴别时，由验证者给声称者发送一个确定的值（质询消息），该值参与鉴别信息的运算。产生的非重复质询消息完全由验证者决定，使得每次传输的鉴别信息不同。这能很好地<strong>防止口令窃听和重放</strong>，但需要额外的通信花销。</p>
+<hr>
+<ul>
+<li><p>产生非重复值的能力完全掌握在验证者手中。提供了一种很好的重放检测能力。</p>
+</li>
+<li><p>附加的复杂协议意味着这种机制不能与传统的简单口令协议结合使用。</p>
+</li>
+</ul>
+<p>质询—响应的身份鉴别，其安全性取决于</p>
+<ul>
+<li><p>散列函数的安全性；</p>
+</li>
+<li><p>由于是单向鉴别，还存在着验证者的假冒和重放攻击。（这可以通过双向鉴别或时间戳来解决）</p>
+</li>
+</ul>
+<hr>
+<p><strong>质询应答方式(Challenge&#x2F;Response)与过程</strong></p>
+<ul>
+<li><p>A期望从B获得一个消息</p>
+<ul>
+<li><p>首先发给B一个随机值(challenge)</p>
+</li>
+<li><p>B收到这个值之后，对它作某种变换，并送回去</p>
+</li>
+<li><p>A收到B的response，希望包含这个随机值</p>
+</li>
+</ul>
+</li>
+<li><p>询问应答方法不适应非连接性的应用，因为它要求在传输开始之前先有握手的额外开销，这就抵消了无连接通信的主要特点。</p>
+</li>
+</ul>
+<h1 id="CH6-访问控制机制与技术"><a href="#CH6-访问控制机制与技术" class="headerlink" title="CH6-访问控制机制与技术"></a>CH6-访问控制机制与技术</h1><h2 id="6-1-访问控制的概念和目标"><a href="#6-1-访问控制的概念和目标" class="headerlink" title="6.1.访问控制的概念和目标"></a>6.1.访问控制的概念和目标</h2><ul>
+<li><p>访问控制的概念：针对越权或未授权使用资源的防御措施</p>
+</li>
+<li><p>目标：防止对任何资源（如计算资源、通信资源或信息资源）进行未授权的访问，从而使资源在 授权范围内使用，决定用户能做什么，也决定代表一定用户利益的程序能做什么。</p>
+</li>
+</ul>
+<h2 id="6-2-访问控制模型的分类"><a href="#6-2-访问控制模型的分类" class="headerlink" title="6.2.访问控制模型的分类"></a>6.2.访问控制模型的分类</h2><img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-24 22.15.21.png" alt="截屏2024-12-24 22.15.21" style="zoom: 25%;" />
+
+<h3 id="6-2-1-自主访问控制-Discretionary-Access-Control-DAC"><a href="#6-2-1-自主访问控制-Discretionary-Access-Control-DAC" class="headerlink" title="6.2.1.自主访问控制-Discretionary Access Control , DAC"></a>6.2.1.自主访问控制-Discretionary Access Control , DAC</h3><p>自主访问控制的含义</p>
+<ul>
+<li>允许客体的属主（创建者）决定主体对该客体的 访问权限<ul>
+<li>灵活地调整安全策略</li>
+<li>具有较好的易用性和可扩展性</li>
+<li>常用于商业系统</li>
+<li>安全性不高</li>
+</ul>
+</li>
+<li><strong>DAC是一种分布式授权管理的模式</strong></li>
+</ul>
+<p>自主访问控制的特点</p>
+<ul>
+<li>优点<ul>
+<li>根据主体的身份和访问权限进行决策</li>
+<li>具有某种访问能力的主体能够<strong>自主地</strong>将访问权的某个子集授予其它主体</li>
+<li><strong>灵活</strong>性高，被大量采用</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>信息在传递过程中其访问权限关系会<strong>被改变</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="6-2-2-强制访问控制-Mandatory-Access-Control，MAC"><a href="#6-2-2-强制访问控制-Mandatory-Access-Control，MAC" class="headerlink" title="6.2.2.&#x3D;&#x3D;强制访问控制-Mandatory Access Control，MAC&#x3D;&#x3D;"></a>6.2.2.&#x3D;&#x3D;强制访问控制-Mandatory Access Control，MAC&#x3D;&#x3D;</h3><p><strong>强制访问控制的含义</strong></p>
+<p>主体对客体的所有访问请求按照强制访问控制策略进行控制，客体的属主<strong>无权</strong>控制客体的访问权限， 以防止对信息的非法和越权访问</p>
+<ul>
+<li><strong>主体和客体分配</strong>有一个安全属性</li>
+<li>应用于<strong>军事</strong>等安全要求较高的系统</li>
+<li>可<strong>与自主访问控制结合</strong>使用</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-26 21.45.04.png" alt="截屏2024-12-26 21.45.04" style="zoom: 25%;" />
+
+<p>强制型访问控制（MAC）特点：</p>
+<ul>
+<li>将主体和客体分级，根据主体和客体的级别标记来决定访问模式。</li>
+<li>其访问控制关系分为：<u>上读&#x2F;下写（完整性），下读&#x2F;上写（机密性）</u>。</li>
+<li>通过梯度安全标签实现单向信息流通模式。</li>
+</ul>
+<hr>
+<p>四种强制访问控制策略规定：</p>
+<ul>
+<li><p><strong>下读</strong>：用户级别大于文件级别的读操作。</p>
+</li>
+<li><p><strong>上写</strong>：用户级别低于文件级别的写操作。</p>
+</li>
+<li><p><strong>下写</strong>：用户级别大于文件级别的写操作。</p>
+</li>
+<li><p><strong>上读</strong>：用户级别低于文件级别的读操作。</p>
+</li>
+</ul>
+<p>强制访问控制——下读&#x2F;上写<u>（上写机密性）</u></p>
+<ul>
+<li><strong>向下读 (Read Down, rd)</strong><ul>
+<li>主体高于客体时允许读</li>
+<li>低级别用户不能读高敏感度的信息</li>
+</ul>
+</li>
+<li><strong>向上写 (Write Up, wr)</strong><ul>
+<li>主体低于客体时允许写</li>
+<li>不允许高敏感度的信息写入低敏感度区域</li>
+</ul>
+</li>
+</ul>
+<p>信息流只能从低级别流向高级别，从而保证<strong>数据机密性</strong>。</p>
+<p>强制访问控制——上读&#x2F;下写<u>（下写完整性）</u></p>
+<ul>
+<li><strong>向上读 (Read Up, ru)</strong><ul>
+<li>主体低于客体时允许读操作</li>
+<li>低信任级别的用户能够读高敏感度的信息</li>
+</ul>
+</li>
+<li><strong>向下写 (Write Down, wd)</strong><ul>
+<li>主体高于客体时允许写操作</li>
+<li>允许高敏感度的信息写入低敏感度区域</li>
+</ul>
+</li>
+</ul>
+<p>实现<strong>数据完整性</strong>要求</p>
+<blockquote>
+<p><strong><u>下读上写机密性，上写下读完整性</u></strong></p>
+</blockquote>
+<p>&#x3D;&#x3D;下图会画！&#x3D;&#x3D;</p>
+<p>（选择题会考保证了机密性还是保证了完整性，哪个是机密性哪个是完整性）</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-24 22.24.58.png" alt="截屏2024-12-24 22.24.58" style="zoom: 25%;" />
+
+
+
+<h2 id="6-3-常见的强制访问控制模型"><a href="#6-3-常见的强制访问控制模型" class="headerlink" title="6.3.常见的强制访问控制模型"></a>6.3.常见的强制访问控制模型</h2><ul>
+<li>BLP模型<ul>
+<li>1973年提出的多级安全模型，影响了许多其他模型的发展，甚至很大程度上影响了计算机安全技术的发展</li>
+</ul>
+</li>
+<li>Biba模型<ul>
+<li>1977年，Biba提出的一种在数学上与BLP模型对偶的完整性保护模型</li>
+</ul>
+</li>
+<li>Clark-Wilson模型<ul>
+<li>1987年，David Clark和David Wilson开发的以事物处理为基本操作的完整性模型，该模型应用于多种商业系统</li>
+</ul>
+</li>
+<li>Chinese Wall模型（别太在意）<ul>
+<li>1989年，D. Brewer和M. Nash提出的同等考虑保密性与完整性的安全策略模型，主要用于解决商业中的利益冲突</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-3-1-Bell－LaPadula-BLP-模型"><a href="#6-3-1-Bell－LaPadula-BLP-模型" class="headerlink" title="6.3.1.&#x3D;&#x3D;Bell－LaPadula(BLP)模型&#x3D;&#x3D;"></a>6.3.1.&#x3D;&#x3D;Bell－LaPadula(BLP)模型&#x3D;&#x3D;</h3><ul>
+<li><p><u>下读&#x2F;上写</u></p>
+</li>
+<li><p><strong><u>保证机密性</u></strong></p>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 16.59.13.png" alt="截屏2024-12-25 16.59.13" style="zoom: 25%;" />
+
+
+
+<h3 id="6-3-2-基于角色的访问控制-RBAC"><a href="#6-3-2-基于角色的访问控制-RBAC" class="headerlink" title="6.3.2.基于角色的访问控制-RBAC"></a>6.3.2.基于角色的访问控制-RBAC</h3><ul>
+<li>基本思想<ul>
+<li>根据用户所担任的角色来决定用户在系统中的访问权限。</li>
+<li>用户必须扮演并激活某种角色，才能访问对象或执行某种操作。</li>
+</ul>
+</li>
+<li>特点<ul>
+<li><strong>便于授权管理</strong>，如系统管理员需要修改系统设置等内容时，必须有几个不同角色的用户到场方能操作，增强了安全性</li>
+<li><strong>便于处理工作分级</strong>，如文件等资源分级管理</li>
+<li><strong>利于安全约束</strong>，容易实现各种安全策略，如最小特权、 职责分离等</li>
+<li><strong>便于任务分担</strong>，不同角色完成不同的任务</li>
+</ul>
+</li>
+</ul>
+<h1 id="CH7-防火墙技术及其发展"><a href="#CH7-防火墙技术及其发展" class="headerlink" title="CH7-防火墙技术及其发展"></a>CH7-防火墙技术及其发展</h1><h2 id="7-1-防火墙的基本概念"><a href="#7-1-防火墙的基本概念" class="headerlink" title="7.1.防火墙的基本概念"></a>7.1.防火墙的基本概念</h2><p>防火墙定义：</p>
+<ul>
+<li><p>在网络间（内部&#x2F;外部网络、不同信息级别）提供<strong>安全连接</strong>的设备</p>
+</li>
+<li><p>用于<strong>实现和执行</strong>网络之间通信的<u>安全策略</u>（预先设定的安全策略）</p>
+</li>
+</ul>
+<h2 id="7-2-防火墙的检测与过滤技术"><a href="#7-2-防火墙的检测与过滤技术" class="headerlink" title="7.2.防火墙的检测与过滤技术"></a>7.2.防火墙的检测与过滤技术</h2><img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 17.10.17.png" alt="截屏2024-12-25 17.10.17" style="zoom: 25%;" />
+
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 17.12.04.png" alt="截屏2024-12-25 17.12.04" style="zoom: 25%;" />
+
+<ul>
+<li>包过滤（Packet Filtering）：工作在网络层，仅根据<strong>数据包头中</strong>的IP地址、端口号、协议类型等标志确定是否允许数据包通过。</li>
+<li>应用代理（Application Proxy）：工作在<strong>应用层</strong>，通过编写不同的应用代理程序，实现对应用层数据的检测和分析。</li>
+<li>状态检测（Stateful Inspection）：工作在2~4层，访问控制方式与1同，但处理的对象不是单个数据包，而是整个连接，通过规则表和连接状态表，综合判断是否允许数据包通过。</li>
+<li>完全内容检测（Compelete Content Inspection）：工作在2~7层，不仅分析数据包头信息、状态信息，而且对应用层协议进行还原和内容分析，有效防范混合型安全威胁。</li>
+</ul>
+<h2 id="7-3-包过滤防火墙"><a href="#7-3-包过滤防火墙" class="headerlink" title="7.3.包过滤防火墙"></a>7.3.包过滤防火墙</h2><p>工作原理</p>
+<ul>
+<li>简单包过滤防火墙不检查数据区</li>
+<li>简单包过滤防火墙不建立连接状态表</li>
+<li>前后报文无关</li>
+<li>应用层控制很弱</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 17.18.10.png" alt="截屏2024-12-25 17.18.10" style="zoom: 25%;" />
+
+
+
+<p>包过滤防火墙具有以下特点： </p>
+<ul>
+<li>优点：<ul>
+<li>只对数据包的 IP 地址、 TCP&#x2F;UDP 协议和端口进行分析，规则简单，处理速度较快</li>
+<li>易于配置</li>
+<li>对用户透明-用户访问时不需要提供额外的密码或使用特殊的命令</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>检查和过滤器只在网络层——不能识别应用层协议或维持连接状态</li>
+<li>安全性薄弱-不能防止IP欺骗等</li>
+<li>静态策略可能成为漏洞</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-4-应用代理防火墙"><a href="#7-4-应用代理防火墙" class="headerlink" title="7.4.应用代理防火墙"></a>7.4.应用代理防火墙</h2><p><strong>应用网关或代理（ Application Gateway or Proxy）</strong></p>
+<p>工作原理</p>
+<ul>
+<li><u>不检查IP、TCP报头，只查数据</u></li>
+<li>不建立连接状态表</li>
+<li>网络层保护比较弱</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 17.27.17.png" alt="截屏2024-12-25 17.27.17" style="zoom: 25%;" />
+
+
+
+<p>应用代理或网关防火墙具有以下特点</p>
+<p>优点：</p>
+<ul>
+<li>可以检查应用层、传输层和网络层的协议特征，对数据包的检测能力比较强</li>
+<li>提供良好的安全性——所有数据的有效负载都在应用层进行检查</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>支持的应用数量有限，无法很好的支持新的应用、技术和协议</li>
+<li>对用户不透明</li>
+<li>性能表现欠佳</li>
+</ul>
+<p>但是，自适应代理技术的出现让应用代理防火墙技术出现了新的转机，它结合了代理防火墙的安全性和包过滤防火墙的高速度等优点，在不损失安全性的基础上大大提高了代理防火墙的性能。</p>
+<h2 id="7-5-状态监测防火墙"><a href="#7-5-状态监测防火墙" class="headerlink" title="7.5.状态监测防火墙"></a>7.5.状态监测防火墙</h2><ul>
+<li>内置TCP&#x2F;IP协议状态机，创建<strong>状态表</strong>用于维护连接上下文，检查每个会话连接的合法性<br>（是否符合TCP&#x2F;IP 通信原理和特征）。</li>
+<li>能够识别和监听常用动态端口应用的协商过程，从而自动为动态应用建立通过防火墙的安全连接。</li>
+</ul>
+<p>状态检测防火墙摒弃了包过滤防火墙“仅考查数据包的 IP 地址等几个参数，而<u>不关心数据包连接状态变化</u>”的缺点，在防火墙的核心部分建立状态连接表，并将进出网络的数据当成一个个的会话，利用状态表跟踪每一个会话状态。状态监测对每一个包的检查不仅根据规则表， 更考虑了数据包是否符合会话所处的<strong>状态</strong>，因此提供了完整的对传输层的控制能力。</p>
+<p>工作原理</p>
+<ul>
+<li>不检查数据区</li>
+<li>建立连接状态表</li>
+<li>前后报文相关</li>
+<li>应用层控制很弱</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 17.45.57.png" alt="截屏2024-12-25 17.45.57" style="zoom: 25%;" />
+
+
+
+<p>状态检测防火墙具有以下特点：</p>
+<ul>
+<li><u>性能大大提高</u></li>
+<li><u>支持大量应用</u></li>
+<li><u>在内核级实现检测过滤</u><ul>
+<li>在所有接口对进&#x2F;出的数据包进行状态检查</li>
+</ul>
+</li>
+<li><u>支持应用层协议检查</u><ul>
+<li>在动态状态表中存储连接状态</li>
+<li>检查对外的连接并预先计算出将返回的连接</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>状态检测技术在大为提高安全防范能力的同时，也改进了流量处理速度。状态监测技术采用了一系列优化技术，使防火墙性能大幅度提升，能应用在各类网络环境中，尤其是在一些规则复杂的大型网络上。 从 2000 年开始，国内的著名防火墙公司都开始采用这一新的体系架构。</p>
+</blockquote>
+<h2 id="7-6-完全内容检测防火墙"><a href="#7-6-完全内容检测防火墙" class="headerlink" title="7.6.完全内容检测防火墙"></a>7.6.完全内容检测防火墙</h2><p>工作原理</p>
+<ul>
+<li>网络层保护强</li>
+<li>应用层保护强</li>
+<li>会话保护很强</li>
+<li>上下文相关</li>
+<li>前后报文有联系</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 20.39.46.png" alt="截屏2024-12-25 20.39.46" style="zoom: 25%;" />
+
+
+
+<h2 id="7-7-地址转换-NAT"><a href="#7-7-地址转换-NAT" class="headerlink" title="7.7.地址转换-NAT"></a>7.7.地址转换-NAT</h2><p>通过防火墙实现</p>
+<ul>
+<li>隐藏了内部网络的结构</li>
+<li>内部网络可以使用私有IP地址</li>
+<li>公开地址不足的网络可以使用这种方式提供IP复用功能</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 20.45.39.png" alt="截屏2024-12-25 20.45.39" style="zoom: 25%;" />
+
+
+
+<h2 id="7-8-地址-端口映射-MAP"><a href="#7-8-地址-端口映射-MAP" class="headerlink" title="7.8.地址&#x2F;端口映射-MAP"></a>7.8.地址&#x2F;端口映射-MAP</h2><blockquote>
+<p>一、端口映射（Port Mapping）<br>        端口映射是将外网主机的IP地址的一个端口映射到内网中，一台机器提供相应的服务。当用户访问该IP的这个端口时，服务器会自动将请求映射到对应局域网内部的机器上。</p>
+<p>端口映射过程就如同：你的办公室在一个商务楼15楼（ip）2810室（port），你有快递要通过快递公司寄出去， 你写好邮寄地址，放到门卫，门卫那边的快递公司就给你寄出去了；当有你的快递运送到商务楼，门卫收到后，知道你公司在2810室，然后就直接送到你的办公室。端口映射的目的是传输数据，数据如何进来，又如何发出去，通过端口映射可以达到和公网上的网络设备通信的目的。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_70208651/article/details/135708705">https://blog.csdn.net/weixin_70208651/article/details/135708705</a></p>
+</blockquote>
+<p>通过防火墙实现</p>
+<ul>
+<li><p>公开服务器可以使用私有地址</p>
+</li>
+<li><p>隐藏内部网络的结构</p>
+</li>
+</ul>
+<p>![截屏2024-12-25 20.49.50](.&#x2F;attachments&#x2F;截屏2024-12-25 20.49.50.png)</p>
+<h2 id="7-9-IP与MAC（用户）绑定"><a href="#7-9-IP与MAC（用户）绑定" class="headerlink" title="7.9.IP与MAC（用户）绑定"></a>7.9.IP与MAC（用户）绑定</h2><p>通过防火墙来实现绑定</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.00.02.png" alt="截屏2024-12-25 21.00.02" style="zoom: 25%;" />
+
+
+
+<h2 id="7-10-防火墙的工作接入方式"><a href="#7-10-防火墙的工作接入方式" class="headerlink" title="7.10.防火墙的工作接入方式"></a>7.10.防火墙的工作接入方式</h2><ul>
+<li><p>路由接入方式（配置ip），防火墙相当于一个简单的路由器</p>
+</li>
+<li><p>透明接入方式（不配置ip），防火墙相当于网桥，原网络结构没有改变</p>
+</li>
+<li><p>混合接入方式</p>
+<ul>
+<li><p>工作于透明接入模式的防火墙可以实现透明接入。</p>
+</li>
+<li><p>工作于路由模式的防火墙可以实现不同网段的连接。</p>
+</li>
+<li><p>路由接入模式的优点和透明接入模式的优点是不能同时并存的。</p>
+</li>
+<li><p>大多数的防火墙一般同时保留了透明接入模式和路由接入模式。</p>
+</li>
+<li><p>根据用户网络情况及用户需求，在使用时由用户进行选择。</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.07.10.png" alt="截屏2024-12-25 21.07.10" style="zoom: 25%;" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="关于被屏蔽子网-DMZ区"><a href="#关于被屏蔽子网-DMZ区" class="headerlink" title="关于被屏蔽子网-DMZ区"></a>关于被屏蔽子网-DMZ区</h2><p>既允许来自非信任的外部网络的访问也允许来自内部网络的访问，但不允许数据流在这两个网络之间流动的中间子网。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_58983558/article/details/127452484">https://blog.csdn.net/m0_58983558/article/details/127452484</a></p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.10.23.png" alt="截屏2024-12-25 21.10.23" style="zoom: 25%;" />
+
+<p><img src="/./attachments/2820072-20221103223436008-301211690.png" alt="img"></p>
+<p>通常被屏蔽子网体系结构的防火墙由四个部分组成：周边网络、外部路由器、内部路由器和堡垒主机。</p>
+<ul>
+<li>周边网络，它是处于非安全、不可信的外部网络与可信的内部网络之间的一个附加网络。周边网络与外部网络，周边网络与内部网络之间都是通过屏蔽路由器实现逻辑隔离的。外部用户想要访问内部网络需要通过两道屏蔽路由器才能访问内部的资源，通常仅能访问周边网络中的资源。外部用户即使入侵了周边网络中的堡垒主机，也无法监听到内部网络的信息。</li>
+<li>外部路由器，它的主要作用是保护周边网络和内部网络，是整个屏蔽子网体系结构的第一道屏障。在外部路由器上设置了对周边网络DMZ和内部网络进行访问的过滤规则，通过这些规则可以限制外网用户只能访问周边网络不能访问内部网络，或者只允许外网用户访问内部网络的部分主机、部分服务。</li>
+<li>内部路由器，它用于隔离周边网络和内部网络，是屏蔽子网体系结构的第二道屏障。在内部路由器上设置了针对内部用户的访问过滤规则，对内部用户访问周边网络和外部网络进行了限制。一些规则可以限制内部网络用户只可以访问周边网络不允许访问外部网络。内部路由器会复制外部路由器的过滤规则，这样可以防止外部路由器过滤功能失效所带来的严重后果。内部路由器还要限制周边网络的堡垒主机和内部网络之间的访问，这样可以减轻在堡垒主机被入侵的情况下，内部网络和服务的正常运行。</li>
+<li>堡垒主机，它处于周边网络中，可以向外部用户提供WWW服务、FTP服务，能够接受外部网络用户的服务资源请求的访问。它也可以向内部网络用户提供DNS，电子邮件、WWW代理、FTP代理等多种服务，是内部网络用户访问外部网络资源的接口。</li>
+<li>被屏蔽子网体系结构的防火墙与双重宿主主机体系结构和被屏蔽子网体系结构相比，安全性更高：外部路由器和内部路由器构成了双层的防护体系；外部路由器和内部路由器上的过滤规则避免了路由器失效产生的安全隐患。但是这个体系结构也有它的不足：构建被屏蔽子网体系的建设成本相对比较高；配置也比较复杂，需要维护人员的专业化程度更高，容易出现配置错误导致的安全隐患。</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.49.40.png" alt="截屏2024-12-25 21.49.40" style="zoom: 25%;" />
+
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.09.08.png" alt="截屏2024-12-25 21.09.08" style="zoom: 25%;" />
+
+<p>![截屏2024-12-25 21.50.00](.&#x2F;attachments&#x2F;截屏2024-12-25 21.50.00.png)</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.50.39.png" alt="截屏2024-12-25 21.50.39" style="zoom: 25%;" />
+
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.52.02.png" alt="截屏2024-12-25 21.52.02" style="zoom: 25%;" />
+
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.52.16.png" alt="截屏2024-12-25 21.52.16" style="zoom: 25%;" />
+
+
+
+<h2 id="7-11-衡量防火墙性能的五大指标"><a href="#7-11-衡量防火墙性能的五大指标" class="headerlink" title="7.11.衡量防火墙性能的五大指标"></a>7.11.衡量防火墙性能的五大指标</h2><ul>
+<li><p>吞吐量：该指标直接影响网络的性能，吞吐量 </p>
+</li>
+<li><p>时延：入口处输入帧最后1个比特到达至出口处输出帧的第1个比特输出所用的时间间隔</p>
+</li>
+<li><p>丢包率：在稳态负载下，应由网络设备传输，但由于资源缺乏而被丢弃的帧的百分比</p>
+</li>
+<li><p>背靠背：从空闲状态开始，以达到传输介质最小合法间隔极限的传输速率发送相当数量的固定长度的帧，当出现第一个帧丢失时，发送的帧数。背靠背是体现防火墙对突发数据的处理能力。</p>
+<blockquote>
+<p>通俗来说，“背靠背”测试就像是你尽可能快地通过网络发送数据到阈值，直到网络开始丢包，然后你看看在丢包发生之前你成功发送了多少数据。这有助于了解你的网络在高负载下的表现如何。</p>
+<p>衡量标准：背对背包主要是指防火墙缓冲容量的大小 ,网络上经常有一 些应用会产生大量的突发数据包（例如：NFS，备份，路由更新等）， 而且这样的数据包的丢失可能会产生更多的数据包的丢失，强大缓冲能 力可以减小这种突发对网络造成的影响。</p>
+</blockquote>
+</li>
+<li><p>并发连结数：并发连接数是指穿越防火墙的主机之间或主机与防火墙之间能同时建立的最大连接数</p>
+</li>
+</ul>
+<h2 id="7-12-防火墙的功能"><a href="#7-12-防火墙的功能" class="headerlink" title="7.12.防火墙的功能"></a>7.12.防火墙的功能</h2><img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.09.48.png" alt="截屏2024-12-25 21.09.48" style="zoom: 25%;" />
+
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 21.03.48.png" alt="截屏2024-12-25 21.03.48" style="zoom: 25%;" />
+
+<h2 id="7-13-注意"><a href="#7-13-注意" class="headerlink" title="7.13.注意"></a>7.13.注意</h2><p>政务内网&amp;外网之间的网闸：物理隔离</p>
+<p>政务外网&amp;互联网之间的防火墙：逻辑隔离</p>
+<h1 id="CH8-入侵检测"><a href="#CH8-入侵检测" class="headerlink" title="CH8-入侵检测"></a>CH8-入侵检测</h1><h2 id="8-1-什么是入侵"><a href="#8-1-什么是入侵" class="headerlink" title="8.1.什么是入侵"></a>8.1.什么是入侵</h2><p>入侵（Intrusion）是指在<strong>非法或未经授权</strong>的情况下， 试图存取或处理系统或网络中的信息，或破坏系统或网络正常运行，致使系统或网络的机密性、完整行和可用性受到破坏的故意行为。</p>
+<h2 id="8-2-入侵检测模型"><a href="#8-2-入侵检测模型" class="headerlink" title="8.2.入侵检测模型"></a>8.2.入侵检测模型</h2><ul>
+<li>通用入侵检测模型（Denning模型）</li>
+<li>层次化入侵检测模型（IDM）</li>
+<li>管理式入侵检测模型（SNMP-IDSM）</li>
+</ul>
+<p>IDS分析技术分类</p>
+<ul>
+<li>异常检测：通过采集和统计来发现网络或系统中可能出现的异常行为，向管理员提出警告。（黑白名单）</li>
+<li>特征检测：通过对采集的信息按已知的知识进行分析，来发现正在发生和已经发生的入侵行为。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>分析策略</th>
+<th>特征检测</th>
+<th>异常检测</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>缺省即允许</td>
+<td>基于信号的特征检测</td>
+<td>基于机器学习的异常检测</td>
+</tr>
+<tr>
+<td>缺省即禁止</td>
+<td>基于策略的特征检测</td>
+<td>基于轮廓的异常检测</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>缺省（Default）设置是预设的、用户无需进行任何配置即可使用的设置。</p>
+<ul>
+<li><strong>缺省即允许</strong>：<ul>
+<li>在这种策略下，如果没有特定的规则来禁止某个行为或访问，那么这个行为或访问就是被允许的。这意味着系统默认允许所有未被明确禁止的活动。<ul>
+<li>在特征检测中，这可能意味着基于信号的特征检测，即系统默认允许所有未被识别为恶意信号的活动。</li>
+<li>在异常检测中，这可能意味着基于机器学习的异常检测，即系统默认允许所有未被机器学习模型识别为异常的行为。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>缺省即禁止</strong>：<ul>
+<li>在这种策略下，如果没有特定的规则来允许某个行为或访问，那么这个行为或访问就是被禁止的。这意味着系统默认禁止所有未被明确允许的活动。<ul>
+<li>在特征检测中，这可能意味着基于策略的特征检测，即系统默认禁止所有未被策略明确允许的活动。</li>
+<li>在异常检测中，这可能意味着基于轮廓的异常检测，即系统默认禁止所有未被定义为正常行为的活动。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="8-3-异常检测"><a href="#8-3-异常检测" class="headerlink" title="8.3.异常检测"></a>8.3.异常检测</h2><ul>
+<li><p>也称为基于<strong>行为</strong>的检测</p>
+</li>
+<li><p>首先<u>建立起用户的正常使用模式，即知识库</u></p>
+</li>
+<li><p>标识出<u>不符合正常模式</u>的行为活动</p>
+</li>
+<li><p>假设所有的入侵行为是异常的</p>
+</li>
+<li><p>基于系统和基于用户的异常</p>
+</li>
+<li><p>比较符合安全的概念，但是实现难度较大</p>
+<ul>
+<li>正常模式的知识库难以建立</li>
+<li>难以明确划分正常模式和异常模式</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-4-特征检测"><a href="#8-4-特征检测" class="headerlink" title="8.4.特征检测"></a>8.4.特征检测</h2><ul>
+<li>也称为<strong>误用</strong>检测</li>
+<li>是针对已知（类似）的攻击行为和间接的违背系统安全策略行为的检测，攻击和系统漏洞库是特征检测的基础。</li>
+<li>建立入侵行为模型(攻击特征库)</li>
+<li>判别当前行为活动是否符合已知的攻击模式</li>
+<li>假设可以识别和表示所有可能的特征</li>
+<li>基于系统的和基于用户</li>
+<li>目前研究工作比较多，并且已经进入实用</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li><p>准确率高</p>
+</li>
+<li><p>算法简单</p>
+</li>
+</ul>
+<p>关键问题：</p>
+<ul>
+<li>有所有的攻击特征，建立完备的特征库</li>
+<li>特征库要不断更新（动态性）</li>
+<li>无法检测新的入侵</li>
+</ul>
+<p>数据来源</p>
+<ul>
+<li><p>审计日志或网络流量</p>
+</li>
+<li><p>特殊用途的数据收集机制</p>
+</li>
+</ul>
+<h2 id="8-5-IDS的两个指标"><a href="#8-5-IDS的两个指标" class="headerlink" title="8.5.IDS的两个指标"></a>8.5.IDS的两个指标</h2><ul>
+<li>漏报率(false negative) <ul>
+<li>指攻击事件没有被IDS检测到</li>
+</ul>
+</li>
+<li>误报率(false alarm rate) <ul>
+<li>把正常事件识别为攻击并报警</li>
+<li>误报率与检出率成<strong>正比例</strong>关系</li>
+</ul>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-25 22.24.34.png" alt="截屏2024-12-25 22.24.34" style="zoom: 25%;" />
+
+
+
+<h1 id="CH9-其他网络安全技术及设备"><a href="#CH9-其他网络安全技术及设备" class="headerlink" title="CH9-其他网络安全技术及设备"></a>CH9-其他网络安全技术及设备</h1><p>应对网络安全漏洞的传统解决办法</p>
+<blockquote>
+<ul>
+<li>“电子政务网络由政务内网和政务外网构成，两网之间物理隔离，政务外网与互联网之间逻辑隔离。” </li>
+<li>“涉及国家秘密的计算机信息系统，不得直接或间接地与国际互联网或其他公共信息相连接，必须实行物理隔离”。 </li>
+<li>一些组织根据自身业务的特点，在有不同安全需求的网络之间也采取了物理隔离的措施。</li>
+</ul>
+<p>物理隔离的核心思想是不连接，没有连接。</p>
+</blockquote>
+<p>物理隔离带来的问题</p>
+<blockquote>
+<ul>
+<li>物理隔离使得正常的信息交流被阻断了</li>
+<li>部分重要的与业务相关的数据需要在涉密网络和非涉密网络间交换，但由于物理隔离无法实现</li>
+<li>物理隔离也成为电子政务、电子商务的数据传输应用的瓶颈</li>
+</ul>
+</blockquote>
+<p>传统物理隔离的应用解决方案分析</p>
+<blockquote>
+<p>优点</p>
+<ul>
+<li>保持了网络间物理隔离的特性，有效防止了对涉密网络的直接网络攻击</li>
+</ul>
+<p>缺点</p>
+<p>延时长、速度慢、能够满足的应用过于单一、可靠性低、在防病毒、内容过滤等方面效果较差、人工操作风险高</p>
+</blockquote>
+<blockquote>
+<h4 id="安全隔离与信息交换系统（网闸）"><a href="#安全隔离与信息交换系统（网闸）" class="headerlink" title="安全隔离与信息交换系统（网闸）"></a>安全隔离与信息交换系统（网闸）</h4><h6 id="传统"><a href="#传统" class="headerlink" title="传统"></a>传统</h6><p>物理隔离<br>核心思想是不连接</p>
+<h6 id="什么是网闸"><a href="#什么是网闸" class="headerlink" title="什么是网闸"></a>什么是网闸</h6><p>用于在两个隔离程度较高的网络之间进行安全的数据交换。<br>至少需要两套主机和一个隔离部件。</p>
+<h6 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h6><p>内端机、外端机、隔离系统</p>
+<h6 id="网闸与防火墙"><a href="#网闸与防火墙" class="headerlink" title="网闸与防火墙"></a>网闸与防火墙</h6><p>防火墙：保证互联互通，尽量安全<br>网闸：保证安全，尽量互联互通</p>
+</blockquote>
+<h2 id="9-1-网闸"><a href="#9-1-网闸" class="headerlink" title="9.1.网闸"></a>9.1.网闸</h2><blockquote>
+<p>网闸：在不同的安全域之间，通过特殊的通讯协议实现数据的安全交换。</p>
+</blockquote>
+<ul>
+<li>网闸是在<u>两个不同安全域之间</u>，通过（特殊的通讯）协议转换的手段，以信息摆渡的方式实现数据交换，且只有被系统明确要求传输的信息才可以通过。其信息流一般为通用应用服务。</li>
+<li>在信息摆渡的过程中内外网（上下游）通过策略控制连接发生，所以“网闸产品”<u>必须要有至少两套主机和一个隔离部件</u>才可完成物理隔离任务。</li>
+<li>网闸主要用于在两个隔离程度高的网络之间进行<strong>安全的</strong>数据交换。</li>
+</ul>
+<h2 id="9-2-安全隔离网闸的组成"><a href="#9-2-安全隔离网闸的组成" class="headerlink" title="9.2.安全隔离网闸的组成"></a>9.2.安全隔离网闸的组成</h2><p>（概念、原理+画出网闸的三个组成部分，再简单说明原理+关键字“私有协议”、“切断”）</p>
+<p>（要画图，关注安全隔离网闸的组成图里的小字，“<strong><u>私有协议</u></strong>”！考题类似于“画出三个组成部分并说明原理”）</p>
+<ul>
+<li>由内端机、外端机、隔离系统（也称数据迁移控制单元）三部分组成</li>
+</ul>
+<p><img src="/./attachments/image-20241225230817366.png" alt="image-20241225230817366"></p>
+<ul>
+<li>原理：<ul>
+<li><strong>切断</strong>网络之间的<strong>通用协议连接</strong>；</li>
+<li>将数据包进行分解或重组为静态数据；</li>
+<li>对静态数据进行安全审查，包括网络协议检查和代码扫描等；</li>
+<li>确认后的安全数据流入内部单元。</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-3-数据隔离交换过程"><a href="#9-3-数据隔离交换过程" class="headerlink" title="9.3.数据隔离交换过程"></a>9.3.数据隔离交换过程</h2><p>![截屏2024-12-25 23.20.59](.&#x2F;attachments&#x2F;截屏2024-12-25 23.20.59.png)</p>
+<h2 id="9-4-网络准入控制-NAC（Network-Access-Control）"><a href="#9-4-网络准入控制-NAC（Network-Access-Control）" class="headerlink" title="9.4.网络准入控制-NAC（Network Access Control）"></a>9.4.网络准入控制-NAC（Network Access Control）</h2><h3 id="9-4-1-NAC概念"><a href="#9-4-1-NAC概念" class="headerlink" title="9.4.1.NAC概念"></a>9.4.1.NAC概念</h3><p>使用网络准入安全策略，确保进入网络的设备符合策略。</p>
+<p>![截屏2024-12-26 15.15.38](.&#x2F;attachments&#x2F;截屏2024-12-26 15.15.38.png)</p>
+<h3 id="9-4-2-网络准入控制系统的功能需求"><a href="#9-4-2-网络准入控制系统的功能需求" class="headerlink" title="9.4.2.网络准入控制系统的功能需求"></a>9.4.2.网络准入控制系统的功能需求</h3><p>![截屏2024-12-26 15.19.24](.&#x2F;attachments&#x2F;截屏2024-12-26 15.19.24.png)</p>
+<h3 id="用户流程"><a href="#用户流程" class="headerlink" title="用户流程"></a>用户流程</h3><p>用户尝试访问某网页或客户端，NAC先对用户进行检查</p>
+<ul>
+<li>未登录：重定向到登录界面</li>
+<li>设备不符合安全策略或登录失败：拒绝接入，分配一个隔离角色，使其访问在线修复资源</li>
+<li>通过检查：获得接入许可</li>
+</ul>
+<h3 id="9-4-3-网络准入控制系统的主要功能"><a href="#9-4-3-网络准入控制系统的主要功能" class="headerlink" title="9.4.3.网络准入控制系统的主要功能"></a>9.4.3.网络准入控制系统的主要功能</h3><ul>
+<li>认证与授权</li>
+<li>扫描与评估</li>
+<li>隔离与实施</li>
+<li>更新与修复</li>
+</ul>
+<h2 id="9-5-入侵防御系统"><a href="#9-5-入侵防御系统" class="headerlink" title="9.5.入侵防御系统"></a>9.5.入侵防御系统</h2><p>IPS与IDS技术同源各有侧重。ips是ids和防火墙的融合</p>
+<p>概念：</p>
+<p>IPS是一种<strong>集入侵检测和防御于一体</strong>的安全产品，它不但能检测入侵的发生，而且能通过一定的响应方式，实时地中止入 侵行为的发生和发展，实时地保护信息系统不受实质性的攻击。<strong>IPS使得IDS和防火墙走向统一</strong>。<strong><u>简单地理解，可认为 IPS就是防火墙加上入侵检测系统</u></strong>。</p>
+<p>功能：</p>
+<ul>
+<li>识别对网络和主机的恶意攻击，并实时进行阻断；</li>
+<li>向管理控制台发送日志信息；</li>
+<li>集成病毒过滤、带宽管理和URL过滤等功能；</li>
+</ul>
+<p>（下两张表提了一嘴仅仅，“所以他的部署上的和设计上的对比，那么vpn”）</p>
+<p><strong>部署方式对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>IPS</th>
+<th>IDS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>在线, 流量必须通过IPS</td>
+<td>旁路, 通过镜像获得数据</td>
+</tr>
+<tr>
+<td>实时, 其时延必须满足业务要求</td>
+<td>准实时, 可接受秒级时延</td>
+</tr>
+<tr>
+<td>立刻影响网络报文</td>
+<td>对网络及业务无直接影响</td>
+</tr>
+<tr>
+<td>作用范围有限制</td>
+<td>监控范围广</td>
+</tr>
+</tbody></table>
+<p><strong>设计出发点对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>IPS</th>
+<th>IDS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无误报</td>
+<td>无漏报</td>
+</tr>
+<tr>
+<td>满足峰值流量和时延要求</td>
+<td>满足平均流量, 可接受秒级时延</td>
+</tr>
+<tr>
+<td>不能影响业务系统可用性</td>
+<td>只需关注自身功能实现</td>
+</tr>
+</tbody></table>
+<h1 id="CH10-虚拟专用网技术"><a href="#CH10-虚拟专用网技术" class="headerlink" title="CH10-虚拟专用网技术"></a>CH10-虚拟专用网技术</h1><h2 id="10-1-VPN概念"><a href="#10-1-VPN概念" class="headerlink" title="10.1.VPN概念"></a>10.1.VPN概念</h2><ul>
+<li><p>在公用网络上建立专用网络，进行安全通讯。在企业网络中有广泛应用。</p>
+</li>
+<li><p>VPN网关通过对数据包的加密和数据包目标地址的转换实现远程访问。</p>
+</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-26 15.37.42.png" alt="截屏2024-12-26 15.37.42" style="zoom: 25%;" />
+
+<h2 id="10-2-VPN的主要协议-IPsec协议、SSL协议"><a href="#10-2-VPN的主要协议-IPsec协议、SSL协议" class="headerlink" title="10.2.VPN的主要协议-IPsec协议、SSL协议"></a>10.2.VPN的主要协议-IPsec协议、SSL协议</h2><h3 id="10-2-1-IPsec协议"><a href="#10-2-1-IPsec协议" class="headerlink" title="10.2.1.IPsec协议"></a>10.2.1.IPsec协议</h3><ul>
+<li>IPSec协议实际上是一个协议包而不是一个单个的协议。 自从1995年IPSec的研究究工作开始以来，现在已经积累了大量的标准文件集，保护网络层安全。</li>
+<li>IPSec的安全协议由三个主要的协议组成，它由下图的第二层以及加密和鉴别算法组成。</li>
+<li>Internet安全协商和密钥管理协议（ISAKMP）是 IPSec的另一个主要组件。ISAKMP提供了用于应用层 服务的通用格式，它支持IPSec协商方的密钥管理需求。</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-26 15.40.31.png" alt="截屏2024-12-26 15.40.31" style="zoom: 25%;" />
+
+<h4 id="10-2-1-1-鉴别头部-AH"><a href="#10-2-1-1-鉴别头部-AH" class="headerlink" title="10.2.1.1.鉴别头部-AH"></a>10.2.1.1.鉴别头部-AH</h4><p>（关注数据包的结构，有头没尾）</p>
+<p>主要实现的是<strong>鉴别</strong>功能。</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-26 16.02.01.png" alt="截屏2024-12-26 16.02.01" style="zoom: 25%;" />
+
+<ul>
+<li>AH的两种工作模式<ul>
+<li>根据AH头插入IP包的位置不同，AH有<strong>传输模式</strong>和<strong>隧道模式</strong>两种工作模式</li>
+</ul>
+</li>
+</ul>
+<h5 id="10-2-1-1-1-AH传输模式"><a href="#10-2-1-1-1-AH传输模式" class="headerlink" title="10.2.1.1.1.AH传输模式"></a>10.2.1.1.1.AH传输模式</h5><p>AH头插入原IP头后面</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-26 15.43.52.png" alt="截屏2024-12-26 15.43.52" style="zoom: 25%;" />
+
+<h5 id="10-2-1-1-2-AH隧道模式"><a href="#10-2-1-1-2-AH隧道模式" class="headerlink" title="10.2.1.1.2.AH隧道模式"></a>10.2.1.1.2.AH隧道模式</h5><p>AH头插入原IP头前面，并在AH头前面放一个协议字段是51的新IP头</p>
+<p>AH的隧道模式将AH头插入原IP分组的IP头之前，并在AH头之前添加新的IP头，这个新的IP头的协议字段将是<strong>51</strong>，以表明IP头之后的是一个AH头</p>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-26 15.44.55.png" alt="截屏2024-12-26 15.44.55" style="zoom: 25%;" />
+
+<h4 id="10-2-1-2-负载安全封装ESP"><a href="#10-2-1-2-负载安全封装ESP" class="headerlink" title="10.2.1.2.负载安全封装ESP"></a>10.2.1.2.负载安全封装ESP</h4><p>（关注数据包的结构细节，有头有尾）</p>
+<p>1）把整个IP分组或传输层协议部分封装到ESP载荷中，进行安全处理，实现机密性和完整性保护。ESP具备AH的全部功能，还能保证机密性。<br>2）ESP只鉴别ESP头之后的信息，AH还要对外部IP头各部分进行鉴别。<br>3）两套算法：负责保护机密性的加密算法和负责进行身份验证的鉴别算法</p>
+<p><strong>ESP的两种工作模式</strong></p>
+<p>与AH机制相类似，根据ESP封装的载荷内容不同，ESP头可选用两种方式中的一种来应用于IP数据包，即<strong>传送模式或隧道模式</strong>，其间的差别决定了ESP保护的真正对象是什么</p>
+<h5 id="10-2-1-2-1-传输模式"><a href="#10-2-1-2-1-传输模式" class="headerlink" title="10.2.1.2.1.传输模式"></a>10.2.1.2.1.传输模式</h5><p>在原IP头后面插入ESP头，封装后面的TCP&#x2F;UDP头和数据。原IP头的协议字段会变成50.</p>
+<p>![截屏2024-12-26 15.49.52](.&#x2F;attachments&#x2F;截屏2024-12-26 15.49.52.png)</p>
+<h5 id="10-2-1-2-1-隧道模式"><a href="#10-2-1-2-1-隧道模式" class="headerlink" title="10.2.1.2.1.隧道模式"></a>10.2.1.2.1.隧道模式</h5><p>在隧道模式，整个IP包（包括原IP包头）都被封装在ESP有效载荷中，并<strong>产生一个新IP头附着在ESP头之前</strong>，这个新的IP头的协 议字段将是50，以表明IP头之后的是一个ESP头</p>
+<blockquote>
+<p>封装原IP头、TCP&#x2F;UDP头和数据，在原IP头前面插入ESP头，最前面是协议字段为50的新IP头。相当于先把包括IP头在内的整个IP包加密封装到新IP包中。<br>特点：对被保护子网中的用户透明；子网内不需要用公网IP；子网内部拓扑结构被保护</p>
+</blockquote>
+<p>![截屏2024-12-26 15.51.23](.&#x2F;attachments&#x2F;截屏2024-12-26 15.51.23.png)</p>
+<h2 id="10-3-VPN通道的建立方式"><a href="#10-3-VPN通道的建立方式" class="headerlink" title="10.3.VPN通道的建立方式"></a>10.3.VPN通道的建立方式</h2><ul>
+<li>Host 对 Host</li>
+<li>Host 对 VPN 网关</li>
+<li>VPN 对 VPN 网关</li>
+<li>Remote User 对 VPN 网关</li>
+</ul>
+<h3 id="10-3-1-VPN通道的建立方式-Host-对-Host"><a href="#10-3-1-VPN通道的建立方式-Host-对-Host" class="headerlink" title="10.3.1.VPN通道的建立方式-Host 对 Host"></a>10.3.1.VPN通道的建立方式-Host 对 Host</h3><ul>
+<li>该模式要求两边主机都支持IPSec </li>
+<li>VPN网关可支持也可不支持IPSec</li>
+</ul>
+<p>![截屏2024-12-26 16.24.59](.&#x2F;attachments&#x2F;截屏2024-12-26 16.24.59.png)</p>
+<h3 id="10-3-2-VPN通道的建立方式-Host-to-VPN-模式："><a href="#10-3-2-VPN通道的建立方式-Host-to-VPN-模式：" class="headerlink" title="10.3.2.VPN通道的建立方式-Host to VPN 模式："></a>10.3.2.VPN通道的建立方式-Host to VPN 模式：</h3><ul>
+<li><p>该模式要求host方主机支持IPSec </p>
+</li>
+<li><p>VPN网关VPN一侧需要支持IPSec</p>
+</li>
+</ul>
+<p>![截屏2024-12-26 16.25.40](.&#x2F;attachments&#x2F;截屏2024-12-26 16.25.40.png)</p>
+<h3 id="10-3-3-VPN通道的建立方式-VPN-to-VPN-模式："><a href="#10-3-3-VPN通道的建立方式-VPN-to-VPN-模式：" class="headerlink" title="10.3.3.VPN通道的建立方式-VPN to VPN 模式："></a>10.3.3.VPN通道的建立方式-VPN to VPN 模式：</h3><ul>
+<li><p>该模式不要求主机支持IPSec </p>
+</li>
+<li><p>两边的VPN网关必须支持IPSec</p>
+</li>
+</ul>
+<p>![截屏2024-12-26 16.26.29](.&#x2F;attachments&#x2F;截屏2024-12-26 16.26.29.png)</p>
+<h3 id="10-3-4-VPN通道的建立方式-Remote-User-to-VPN-网关"><a href="#10-3-4-VPN通道的建立方式-Remote-User-to-VPN-网关" class="headerlink" title="10.3.4.VPN通道的建立方式-Remote User to  VPN 网关"></a>10.3.4.VPN通道的建立方式-Remote User to  VPN 网关</h3><ul>
+<li>该模式不要求网关内主机支持IPSec</li>
+</ul>
+<img src="https://raw.githubusercontent.com/Hozenghan/blogsResources/master/images/截屏2024-12-26 16.27.08.png" alt="截屏2024-12-26 16.27.08" style="zoom: 25%;" />
+
+
+
+<h2 id="10-4-传输层安全协议及其应用-SSL"><a href="#10-4-传输层安全协议及其应用-SSL" class="headerlink" title="10.4.传输层安全协议及其应用-SSL"></a>10.4.传输层安全协议及其应用-SSL</h2><ul>
+<li>SSL协议<ul>
+<li>Secure Sockets Layer （安全套接层)</li>
+<li>广泛地用于Web浏览器与服务器之间的身份认证和加密数据传输 （<strong><u>实例应用：HTTPS</u></strong>）</li>
+<li>SSL协议提供的<u>服务主要有</u>：<ul>
+<li>认证用户和服务器，确保数据发送到正确的客户机和服务器</li>
+<li>加密数据以防止数据中途被窃取</li>
+<li>维护数据的完整性，确保数据在传输过程中不被改变</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="10-4-1-SSL握手协议行为过程"><a href="#10-4-1-SSL握手协议行为过程" class="headerlink" title="10.4.1.SSL握手协议行为过程"></a>10.4.1.SSL握手协议行为过程</h3><p>![截屏2024-12-26 16.59.06](.&#x2F;attachments&#x2F;截屏2024-12-26 16.59.06.png)</p>
+<p>![截屏2024-12-26 17.03.33](.&#x2F;attachments&#x2F;截屏2024-12-26 17.03.33.png)</p>
+<blockquote>
+<p>SSL &#x2F; TLS 握手详细过程</p>
+</blockquote>
+<ol>
+<li>**”client hello”消息：**客户端通过发送”client hello”消息向服务器发起握手请求，该消息包含了客户端所支持的 TLS 版本和密码组合以供服务器进行选择，还有一个”client random”随机字符串。</li>
+<li>**”server hello”消息：**服务器发送”server hello”消息对客户端进行回应，该消息包含了数字证书，服务器选择的密码组合和”server random”随机字符串。</li>
+<li>**验证：**客户端对服务器发来的证书进行验证，确保对方的合法身份，验证过程可以细化为以下几个步骤：<ol>
+<li>检查数字签名</li>
+<li>验证证书链 (这个概念下面会进行说明)</li>
+<li>检查证书的有效期</li>
+<li>检查证书的撤回状态 (撤回代表证书已失效)</li>
+</ol>
+</li>
+<li>**”premaster secret”字符串：**客户端向服务器发送另一个随机字符串”premaster secret (预主密钥)”，这个字符串是经过服务器的公钥加密过的，只有对应的私钥才能解密。</li>
+<li>**使用私钥：**服务器使用私钥解密”premaster secret”。</li>
+<li><strong>生成共享密钥</strong>：客户端和服务器均使用 client random，server random 和 premaster secret，并通过相同的算法生成相同的共享密钥 <strong>KEY</strong>。</li>
+<li>**客户端就绪：**客户端发送经过共享密钥 <strong>KEY</strong>加密过的”finished”信号。</li>
+<li>**服务器就绪：**服务器发送经过共享密钥 <strong>KEY</strong>加密过的”finished”信号。</li>
+<li>**达成安全通信：**握手完成，双方使用对称加密进行安全通信。</li>
+</ol>
+<h3 id="10-4-2-SSL记录协议"><a href="#10-4-2-SSL记录协议" class="headerlink" title="10.4.2.SSL记录协议"></a>10.4.2.SSL记录协议</h3><ul>
+<li>SSL记录协议。为SSL连接提供了两种服务<ul>
+<li><strong>机密性</strong>：**<u>握手协议？？？？</u>**为SSL有效载荷的常规密码定义共享秘密密钥。</li>
+<li><strong>消息完整性</strong>：握手协议为生成MAC定义共享秘密密钥。</li>
+</ul>
+</li>
+<li>记录协议发出传输请求消息，把数据分段成可以操作的数据块，还可以选择压缩数据，加入MAC信息，加密，加入文件头，在TCP段中传输结果单元。接收到的数据需要解密、身份验证、解压、重组，然后才能交付.</li>
+</ul>
+<h3 id="10-4-3-SSL应用实例-HTTPS"><a href="#10-4-3-SSL应用实例-HTTPS" class="headerlink" title="10.4.3.SSL应用实例-HTTPS"></a>10.4.3.SSL应用实例-HTTPS</h3><ul>
+<li>HTTPS（**全称：Hypertext Transfer Protocol over Secure Socket Layer，**超文本传输安全协议），是HTTP的安全版。</li>
+<li>HTTPS的<strong>安全基础是SSL</strong>，通过<strong>结合HTTP和SSL</strong>来实现Web浏览器和Web服务器之间的安全通信。</li>
+<li>HTTPS已经融合在当今的<strong>Web浏览器</strong>中，只要Web服务器支持HTTPS，就可以使用。</li>
+<li>HTTPS现在已广泛用于Intenet上的安全B&#x2F;S应用，例如网上交易等</li>
+<li>HTTPS的规范文档可参阅RFC 2818（HTTPS Over TLS）</li>
+</ul>
+<h4 id="10-4-3-1-HTTPS通信过程（单向鉴别）"><a href="#10-4-3-1-HTTPS通信过程（单向鉴别）" class="headerlink" title="10.4.3.1.HTTPS通信过程（单向鉴别）"></a>10.4.3.1.HTTPS通信过程（单向鉴别）</h4><p>（图会画，会描述全过程）</p>
+<p><img src="/./attachments/image-20241226171518450.png" alt="image-20241226171518450"></p>
+<p>1、客户端向服务器发起连接请求</p>
+<p>2、服务器生成公私钥对，通过可信机构对公钥等信息进行数字签名，形成服务器证书</p>
+<p>3、服务器发送证书响应请求</p>
+<p>4、客户端验证服务器证书，生成数据加密密钥，并采用服务器证书中的公钥对数据加密密钥进行保护</p>
+<p>5、客户端向服务器发送加密后的数据加密密钥</p>
+<p>6、服务器用私钥解密出数据加密密钥，并用该密钥加密要传输的静荷数据</p>
+<p>7、客户端用数据加密密钥解密服务器传来的数据。</p>
+<h3 id="10-4-4-SSL安全性"><a href="#10-4-4-SSL安全性" class="headerlink" title="10.4.4.SSL安全性"></a>10.4.4.SSL安全性</h3><p>（会考一个判断题，“在有限范围内，不涉及国家重要基础设施的时候可以使用SSL，但是不能用于政府、国防、军事中，因为技术限制，进口我国的ssl底层的RSA的安全性不够高，且不符合《商用密码管理条例》”）</p>
+<p>SSL标准协议存在着以下不容忽视的缺点</p>
+<ul>
+<li>不符合《商用密码管理条例》中对商用密码产品<strong>不得使用国外密码算法</strong>的规定。</li>
+<li><strong>系统安全性还不够强</strong>。SSL协议的数据安全性其实就是建立在RSA等算法的安全性上，因此从本质上来讲，攻破RSA等算法就等同于攻破此协议。由于美国政府的出口限制，使得进入我国的实现了SSL的产品（Web浏览器和服务器）均只能提供512比特RSA公钥、40比特对称密钥的加密。显然，攻破此协议并不太难</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://hozenghan.github.io/blog">Hozenghan</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://hozenghan.github.io/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF_final/">http://hozenghan.github.io/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF_final/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://hozenghan.github.io/blog" target="_blank">Hozenghan的Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/blog/images/profile.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/blog/2025/01/15/%E5%85%B6%E4%BB%96/Hexo%E5%BB%BA%E7%AB%99/Hexo/" title="Hexo+GithubPages建站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Hexo+GithubPages建站</div></div><div class="info-2"><div class="info-item-1">0. Hexo+Github_Pages前言 什么是Github_PagesGitHub Pages 可以将我们托管在 GitHub 上的一个仓库中的 html、css 和 js 代码渲染成静态页面。当然，这个仓库是特殊的，所以每一个 GitHub 账户只能够育一个这样的仓库。将相应的博客内容上传到 GitHub 上之后，我们就可以通过 https://www.username.github.io 来访问自己的博客，这里的 username 要换成自己的用户名。 什么是HexoHexo 是使用 nodejs 开发的一个快速、简洁、高效的静态博客生成器。Hexo 使用 Markdown 语法解析文章，然后渲染成相应的网页，然后我们将渲染好的网页代码上传到 GitHub 上就可以了。简单来讲，利用 Hexo，我们只需要使用 Markdown 语法写文章，剩下的事情全部交给 Hexo 去做，我们就可以看到想要的博客效果了。  配置这个你需要  Git&amp;Github nodejs&amp;npm hexo  1. 安装 Hexonpm install hexo-cli...</div></div></div></a><a class="pagination-related" href="/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E6%9C%9F%E6%9C%AB%E9%87%8D%E7%82%B9/" title="网络攻防技术期末重点"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">网络攻防技术期末重点</div></div><div class="info-2"><div class="info-item-1">...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/blog/images/profile.jpg" onerror="this.onerror=null;this.src='/blog/images/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Hozenghan</div><div class="author-info-description">📷   🖥️   📖  💤   🛵</div><div class="site-data"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Hozenghan"><i class="fab fa-github"></i><span>Follow Me!</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/Hozenghan" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/blog/QQ" target="_blank" title=""><i class="fab fa-qq"></i></a><a class="social-icon" href="mailto:wuzhenghannnnnn@163.com" target="_blank" title="Email"><i class="fas fa-envelope-open-text"></i></a><a class="social-icon" href="https://hozenghan.github.io" target="_blank" title=""><i class="fas fa-home"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">无限进步！建议挂上梯子，不然有些图片可能会加载不出来。天天开心哦🥰</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CH1-%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">CH1-网络空间安全概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%9B%AE%E6%A0%87"><span class="toc-number">1.1.</span> <span class="toc-text">1.1.信息安全的基本目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8"><span class="toc-number">1.2.</span> <span class="toc-text">1.2.什么是信息安全</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%AE%9A%E4%B9%89-%E7%BB%84%E6%88%90"><span class="toc-number">1.3.</span> <span class="toc-text">1.3.网络安全的基本定义+组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-1-%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9A%84%E5%9B%9B%E4%B8%AA%E8%A6%81%E7%B4%A0%EF%BC%88%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%84%E6%88%90%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1.网络安全的四个要素（网络空间的组成）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-1%E5%9B%BD%E5%AE%B6%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%9A%84%E5%9B%9B%E4%B8%AA%E8%A6%81%E7%B4%A0"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">1.3.1.1国家网络安全的四个要素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-2-%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">1.3.1.2.网络空间的组成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-2-%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E7%9A%84%E4%B8%80%E8%88%AC%E6%80%A7%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2.&#x3D;&#x3D;网络空间的一般性定义&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E7%9A%84%E5%9B%9B%E5%B1%82%E6%AC%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">1.4.网络空间安全的四层次模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH2-%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E5%8F%8A%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">CH2-网络空间安全风险及风险管理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86%EF%BC%88%E5%AE%9A%E4%B9%89%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">2.1.什么是网络空间安全风险管理（定义）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0%E5%B7%A5%E5%85%B7"><span class="toc-number">2.2.</span> <span class="toc-text">2.2.风险评估工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E9%A3%8E%E9%99%A9%E6%9C%AF%E8%AF%AD"><span class="toc-number">2.3.</span> <span class="toc-text">2.3.网络空间安全风险术语</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-1-%E8%B5%84%E4%BA%A7"><span class="toc-number">2.3.1.</span> <span class="toc-text">2.3.1.资产</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-2-%E5%A8%81%E8%83%81"><span class="toc-number">2.3.2.</span> <span class="toc-text">2.3.2.威胁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-3-%E8%84%86%E5%BC%B1%E6%80%A7%EF%BC%88%E6%BC%8F%E6%B4%9E-vulnerability%EF%BC%89"><span class="toc-number">2.3.3.</span> <span class="toc-text">2.3.3.脆弱性（漏洞-vulnerability）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-4-%E6%8E%A7%E5%88%B6%E6%8E%AA%E6%96%BD"><span class="toc-number">2.3.4.</span> <span class="toc-text">2.3.4.控制措施</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-5-%E9%A3%8E%E9%99%A9"><span class="toc-number">2.3.5.</span> <span class="toc-text">2.3.5.&#x3D;&#x3D;风险&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-6-%E6%AE%8B%E4%BD%99%E9%A3%8E%E9%99%A9"><span class="toc-number">2.3.6.</span> <span class="toc-text">2.3.6.残余风险</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%9B%9B%E7%B1%BB%E9%A3%8E%E9%99%A9%E5%A4%84%E7%BD%AE%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">2.4.常用的四类风险处置方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E9%A3%8E%E9%99%A9%E5%88%86%E6%9E%90"><span class="toc-number">2.5.</span> <span class="toc-text">2.5.风险分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-6-%E5%9B%BD%E4%BA%A7%E5%8C%96%E6%9B%BF%E4%BB%A3"><span class="toc-number">2.6.</span> <span class="toc-text">2.6.国产化替代</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH3-%E4%BF%A1%E6%81%AF%E4%B8%8E%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E4%BF%9D%E9%9A%9C"><span class="toc-number">3.</span> <span class="toc-text">CH3-信息与网络空间安全保障</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E4%BF%9D%E9%9A%9C"><span class="toc-number">3.1.</span> <span class="toc-text">3.1.信息系统安全保障</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">3.2.</span> <span class="toc-text">3.2.安全模型的概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1.什么是网络空间安全模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%AE%89%E5%85%A8%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2.为什么需要安全模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-PDR%E6%BC%94%E5%8F%98"><span class="toc-number">3.3.</span> <span class="toc-text">3.3.PDR演变</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-PDR"><span class="toc-number">3.3.1.</span> <span class="toc-text">3.3.1.PDR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-PDRR"><span class="toc-number">3.3.2.</span> <span class="toc-text">3.3.2.PDRR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E5%88%86%E5%B8%83%E5%BC%8F%E5%8A%A8%E6%80%81%E4%B8%BB%E5%8A%A8%E6%A8%A1%E5%9E%8BPPDR"><span class="toc-number">3.3.3.</span> <span class="toc-text">3.3.3.分布式动态主动模型PPDR</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-IATF-%E6%B7%B1%E5%BA%A6%E9%98%B2%E5%BE%A1%E4%BF%9D%E9%9A%9C%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.4.</span> <span class="toc-text">3.4.IATF-深度防御保障模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E4%BD%95%E8%B0%93%E2%80%9C%E6%B7%B1%E5%BA%A6%E9%98%B2%E5%BE%A1%E2%80%9D"><span class="toc-number">3.5.</span> <span class="toc-text">3.5.何谓“深度防御”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-IATF%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="toc-number">3.6.</span> <span class="toc-text">3.6.IATF的三要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-IATF%E7%9A%84%E5%AE%89%E5%85%A8%E9%9C%80%E6%B1%82%E5%88%92%E5%88%86"><span class="toc-number">3.7.</span> <span class="toc-text">3.7.IATF的安全需求划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-DDOS%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">3.8.</span> <span class="toc-text">3.8.DDOS事件处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-9-%E5%B8%B8%E8%A7%81%E5%BA%94%E6%80%A5%E4%BA%8B%E4%BB%B6"><span class="toc-number">3.9.</span> <span class="toc-text">3.9.常见应急事件</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH4-%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E4%BD%93%E7%B3%BB%E4%B8%8E%E6%8A%80%E6%9C%AF"><span class="toc-number">4.</span> <span class="toc-text">CH4-网络空间安全技术体系与技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E4%BF%A1%E6%81%AF%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E6%A1%86%E6%9E%B6"><span class="toc-number">4.1.</span> <span class="toc-text">4.1.信息系统安全体系框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E7%BD%91%E7%BB%9C%E7%A9%BA%E9%97%B4%E5%AE%89%E5%85%A8%E4%BD%93%E7%B3%BB%E6%A1%86%E6%9E%B6"><span class="toc-number">4.2.</span> <span class="toc-text">4.2.网络空间安全体系框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E6%95%B0%E6%8D%AE%E5%AE%8C%E6%95%B4%E6%80%A7%E6%9C%BA%E5%88%B6"><span class="toc-number">4.3.</span> <span class="toc-text">4.3.数据完整性机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E6%9C%BA%E5%88%B6"><span class="toc-number">4.4.</span> <span class="toc-text">4.4.数字签名机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E5%85%AC%E9%92%A5%E5%8A%A0%E5%AF%86%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.5.</span> <span class="toc-text">4.5.公钥加密模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E6%B6%88%E6%81%AF%E9%89%B4%E5%88%AB%E7%A0%81"><span class="toc-number">4.6.</span> <span class="toc-text">4.6.消息鉴别码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH5-%E9%89%B4%E5%88%AB%E6%9C%BA%E5%88%B6%E4%B8%8E%E6%8A%80%E6%9C%AF"><span class="toc-number">5.</span> <span class="toc-text">CH5-鉴别机制与技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-%E5%AF%B9%E8%BA%AB%E4%BB%BD%E9%89%B4%E5%88%AB%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%A6%81%E6%B1%82"><span class="toc-number">5.1.</span> <span class="toc-text">5.1.对身份鉴别系统的要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E5%AE%9E%E7%8E%B0%E8%BA%AB%E4%BB%BD%E9%89%B4%E5%88%AB%E7%9A%84%E9%80%94%E5%BE%84"><span class="toc-number">5.2.</span> <span class="toc-text">5.2.实现身份鉴别的途径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E5%9F%BA%E4%BA%8E%E8%B4%A8%E8%AF%A2%EF%BC%8D%E5%BA%94%E7%AD%94%E7%9A%84%E8%BA%AB%E4%BB%BD%E9%89%B4%E5%88%AB%E6%8A%80%E6%9C%AF"><span class="toc-number">5.3.</span> <span class="toc-text">5.3.&#x3D;&#x3D;基于质询－应答的身份鉴别技术&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH6-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%9C%BA%E5%88%B6%E4%B8%8E%E6%8A%80%E6%9C%AF"><span class="toc-number">6.</span> <span class="toc-text">CH6-访问控制机制与技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E7%9B%AE%E6%A0%87"><span class="toc-number">6.1.</span> <span class="toc-text">6.1.访问控制的概念和目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">6.2.</span> <span class="toc-text">6.2.访问控制模型的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-1-%E8%87%AA%E4%B8%BB%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-Discretionary-Access-Control-DAC"><span class="toc-number">6.2.1.</span> <span class="toc-text">6.2.1.自主访问控制-Discretionary Access Control , DAC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-2-%E5%BC%BA%E5%88%B6%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-Mandatory-Access-Control%EF%BC%8CMAC"><span class="toc-number">6.2.2.</span> <span class="toc-text">6.2.2.&#x3D;&#x3D;强制访问控制-Mandatory Access Control，MAC&#x3D;&#x3D;</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%BC%BA%E5%88%B6%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.3.</span> <span class="toc-text">6.3.常见的强制访问控制模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-1-Bell%EF%BC%8DLaPadula-BLP-%E6%A8%A1%E5%9E%8B"><span class="toc-number">6.3.1.</span> <span class="toc-text">6.3.1.&#x3D;&#x3D;Bell－LaPadula(BLP)模型&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-2-%E5%9F%BA%E4%BA%8E%E8%A7%92%E8%89%B2%E7%9A%84%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6-RBAC"><span class="toc-number">6.3.2.</span> <span class="toc-text">6.3.2.基于角色的访问控制-RBAC</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH7-%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%85%B6%E5%8F%91%E5%B1%95"><span class="toc-number">7.</span> <span class="toc-text">CH7-防火墙技术及其发展</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">7.1.</span> <span class="toc-text">7.1.防火墙的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E6%A3%80%E6%B5%8B%E4%B8%8E%E8%BF%87%E6%BB%A4%E6%8A%80%E6%9C%AF"><span class="toc-number">7.2.</span> <span class="toc-text">7.2.防火墙的检测与过滤技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E5%8C%85%E8%BF%87%E6%BB%A4%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">7.3.</span> <span class="toc-text">7.3.包过滤防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E5%BA%94%E7%94%A8%E4%BB%A3%E7%90%86%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">7.4.</span> <span class="toc-text">7.4.应用代理防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-%E7%8A%B6%E6%80%81%E7%9B%91%E6%B5%8B%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">7.5.</span> <span class="toc-text">7.5.状态监测防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-6-%E5%AE%8C%E5%85%A8%E5%86%85%E5%AE%B9%E6%A3%80%E6%B5%8B%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">7.6.</span> <span class="toc-text">7.6.完全内容检测防火墙</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-7-%E5%9C%B0%E5%9D%80%E8%BD%AC%E6%8D%A2-NAT"><span class="toc-number">7.7.</span> <span class="toc-text">7.7.地址转换-NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-8-%E5%9C%B0%E5%9D%80-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84-MAP"><span class="toc-number">7.8.</span> <span class="toc-text">7.8.地址&#x2F;端口映射-MAP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-9-IP%E4%B8%8EMAC%EF%BC%88%E7%94%A8%E6%88%B7%EF%BC%89%E7%BB%91%E5%AE%9A"><span class="toc-number">7.9.</span> <span class="toc-text">7.9.IP与MAC（用户）绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-10-%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%8E%A5%E5%85%A5%E6%96%B9%E5%BC%8F"><span class="toc-number">7.10.</span> <span class="toc-text">7.10.防火墙的工作接入方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%A2%AB%E5%B1%8F%E8%94%BD%E5%AD%90%E7%BD%91-DMZ%E5%8C%BA"><span class="toc-number">7.11.</span> <span class="toc-text">关于被屏蔽子网-DMZ区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-11-%E8%A1%A1%E9%87%8F%E9%98%B2%E7%81%AB%E5%A2%99%E6%80%A7%E8%83%BD%E7%9A%84%E4%BA%94%E5%A4%A7%E6%8C%87%E6%A0%87"><span class="toc-number">7.12.</span> <span class="toc-text">7.11.衡量防火墙性能的五大指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-12-%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">7.13.</span> <span class="toc-text">7.12.防火墙的功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-13-%E6%B3%A8%E6%84%8F"><span class="toc-number">7.14.</span> <span class="toc-text">7.13.注意</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH8-%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B"><span class="toc-number">8.</span> <span class="toc-text">CH8-入侵检测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%A5%E4%BE%B5"><span class="toc-number">8.1.</span> <span class="toc-text">8.1.什么是入侵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">8.2.</span> <span class="toc-text">8.2.入侵检测模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B"><span class="toc-number">8.3.</span> <span class="toc-text">8.3.异常检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E7%89%B9%E5%BE%81%E6%A3%80%E6%B5%8B"><span class="toc-number">8.4.</span> <span class="toc-text">8.4.特征检测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-5-IDS%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%8C%87%E6%A0%87"><span class="toc-number">8.5.</span> <span class="toc-text">8.5.IDS的两个指标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH9-%E5%85%B6%E4%BB%96%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF%E5%8F%8A%E8%AE%BE%E5%A4%87"><span class="toc-number">9.</span> <span class="toc-text">CH9-其他网络安全技术及设备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%89%E5%85%A8%E9%9A%94%E7%A6%BB%E4%B8%8E%E4%BF%A1%E6%81%AF%E4%BA%A4%E6%8D%A2%E7%B3%BB%E7%BB%9F%EF%BC%88%E7%BD%91%E9%97%B8%EF%BC%89"><span class="toc-number">9.0.0.1.</span> <span class="toc-text">安全隔离与信息交换系统（网闸）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BC%A0%E7%BB%9F"><span class="toc-number">9.0.0.1.0.1.</span> <span class="toc-text">传统</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BD%91%E9%97%B8"><span class="toc-number">9.0.0.1.0.2.</span> <span class="toc-text">什么是网闸</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BB%84%E6%88%90"><span class="toc-number">9.0.0.1.0.3.</span> <span class="toc-text">组成</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E7%BD%91%E9%97%B8%E4%B8%8E%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">9.0.0.1.0.4.</span> <span class="toc-text">网闸与防火墙</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E7%BD%91%E9%97%B8"><span class="toc-number">9.1.</span> <span class="toc-text">9.1.网闸</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E5%AE%89%E5%85%A8%E9%9A%94%E7%A6%BB%E7%BD%91%E9%97%B8%E7%9A%84%E7%BB%84%E6%88%90"><span class="toc-number">9.2.</span> <span class="toc-text">9.2.安全隔离网闸的组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-%E6%95%B0%E6%8D%AE%E9%9A%94%E7%A6%BB%E4%BA%A4%E6%8D%A2%E8%BF%87%E7%A8%8B"><span class="toc-number">9.3.</span> <span class="toc-text">9.3.数据隔离交换过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-4-%E7%BD%91%E7%BB%9C%E5%87%86%E5%85%A5%E6%8E%A7%E5%88%B6-NAC%EF%BC%88Network-Access-Control%EF%BC%89"><span class="toc-number">9.4.</span> <span class="toc-text">9.4.网络准入控制-NAC（Network Access Control）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-1-NAC%E6%A6%82%E5%BF%B5"><span class="toc-number">9.4.1.</span> <span class="toc-text">9.4.1.NAC概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-2-%E7%BD%91%E7%BB%9C%E5%87%86%E5%85%A5%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82"><span class="toc-number">9.4.2.</span> <span class="toc-text">9.4.2.网络准入控制系统的功能需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%B5%81%E7%A8%8B"><span class="toc-number">9.4.3.</span> <span class="toc-text">用户流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-4-3-%E7%BD%91%E7%BB%9C%E5%87%86%E5%85%A5%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="toc-number">9.4.4.</span> <span class="toc-text">9.4.3.网络准入控制系统的主要功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-5-%E5%85%A5%E4%BE%B5%E9%98%B2%E5%BE%A1%E7%B3%BB%E7%BB%9F"><span class="toc-number">9.5.</span> <span class="toc-text">9.5.入侵防御系统</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CH10-%E8%99%9A%E6%8B%9F%E4%B8%93%E7%94%A8%E7%BD%91%E6%8A%80%E6%9C%AF"><span class="toc-number">10.</span> <span class="toc-text">CH10-虚拟专用网技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-VPN%E6%A6%82%E5%BF%B5"><span class="toc-number">10.1.</span> <span class="toc-text">10.1.VPN概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-VPN%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8D%8F%E8%AE%AE-IPsec%E5%8D%8F%E8%AE%AE%E3%80%81SSL%E5%8D%8F%E8%AE%AE"><span class="toc-number">10.2.</span> <span class="toc-text">10.2.VPN的主要协议-IPsec协议、SSL协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-1-IPsec%E5%8D%8F%E8%AE%AE"><span class="toc-number">10.2.1.</span> <span class="toc-text">10.2.1.IPsec协议</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2-1-1-%E9%89%B4%E5%88%AB%E5%A4%B4%E9%83%A8-AH"><span class="toc-number">10.2.1.1.</span> <span class="toc-text">10.2.1.1.鉴别头部-AH</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#10-2-1-1-1-AH%E4%BC%A0%E8%BE%93%E6%A8%A1%E5%BC%8F"><span class="toc-number">10.2.1.1.1.</span> <span class="toc-text">10.2.1.1.1.AH传输模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10-2-1-1-2-AH%E9%9A%A7%E9%81%93%E6%A8%A1%E5%BC%8F"><span class="toc-number">10.2.1.1.2.</span> <span class="toc-text">10.2.1.1.2.AH隧道模式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2-1-2-%E8%B4%9F%E8%BD%BD%E5%AE%89%E5%85%A8%E5%B0%81%E8%A3%85ESP"><span class="toc-number">10.2.1.2.</span> <span class="toc-text">10.2.1.2.负载安全封装ESP</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#10-2-1-2-1-%E4%BC%A0%E8%BE%93%E6%A8%A1%E5%BC%8F"><span class="toc-number">10.2.1.2.1.</span> <span class="toc-text">10.2.1.2.1.传输模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10-2-1-2-1-%E9%9A%A7%E9%81%93%E6%A8%A1%E5%BC%8F"><span class="toc-number">10.2.1.2.2.</span> <span class="toc-text">10.2.1.2.1.隧道模式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3-VPN%E9%80%9A%E9%81%93%E7%9A%84%E5%BB%BA%E7%AB%8B%E6%96%B9%E5%BC%8F"><span class="toc-number">10.3.</span> <span class="toc-text">10.3.VPN通道的建立方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-1-VPN%E9%80%9A%E9%81%93%E7%9A%84%E5%BB%BA%E7%AB%8B%E6%96%B9%E5%BC%8F-Host-%E5%AF%B9-Host"><span class="toc-number">10.3.1.</span> <span class="toc-text">10.3.1.VPN通道的建立方式-Host 对 Host</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-2-VPN%E9%80%9A%E9%81%93%E7%9A%84%E5%BB%BA%E7%AB%8B%E6%96%B9%E5%BC%8F-Host-to-VPN-%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="toc-number">10.3.2.</span> <span class="toc-text">10.3.2.VPN通道的建立方式-Host to VPN 模式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-3-VPN%E9%80%9A%E9%81%93%E7%9A%84%E5%BB%BA%E7%AB%8B%E6%96%B9%E5%BC%8F-VPN-to-VPN-%E6%A8%A1%E5%BC%8F%EF%BC%9A"><span class="toc-number">10.3.3.</span> <span class="toc-text">10.3.3.VPN通道的建立方式-VPN to VPN 模式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-4-VPN%E9%80%9A%E9%81%93%E7%9A%84%E5%BB%BA%E7%AB%8B%E6%96%B9%E5%BC%8F-Remote-User-to-VPN-%E7%BD%91%E5%85%B3"><span class="toc-number">10.3.4.</span> <span class="toc-text">10.3.4.VPN通道的建立方式-Remote User to  VPN 网关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4-%E4%BC%A0%E8%BE%93%E5%B1%82%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8-SSL"><span class="toc-number">10.4.</span> <span class="toc-text">10.4.传输层安全协议及其应用-SSL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-1-SSL%E6%8F%A1%E6%89%8B%E5%8D%8F%E8%AE%AE%E8%A1%8C%E4%B8%BA%E8%BF%87%E7%A8%8B"><span class="toc-number">10.4.1.</span> <span class="toc-text">10.4.1.SSL握手协议行为过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-2-SSL%E8%AE%B0%E5%BD%95%E5%8D%8F%E8%AE%AE"><span class="toc-number">10.4.2.</span> <span class="toc-text">10.4.2.SSL记录协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-3-SSL%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B-HTTPS"><span class="toc-number">10.4.3.</span> <span class="toc-text">10.4.3.SSL应用实例-HTTPS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-4-3-1-HTTPS%E9%80%9A%E4%BF%A1%E8%BF%87%E7%A8%8B%EF%BC%88%E5%8D%95%E5%90%91%E9%89%B4%E5%88%AB%EF%BC%89"><span class="toc-number">10.4.3.1.</span> <span class="toc-text">10.4.3.1.HTTPS通信过程（单向鉴别）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-4-SSL%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-number">10.4.4.</span> <span class="toc-text">10.4.4.SSL安全性</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/blog/2025/01/16/%E5%85%B6%E4%BB%96/Hexo%E5%BB%BA%E7%AB%99/Hexo%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E9%A1%B5%E9%9D%A2/" title="Hexo添加自定义HTML页面">Hexo添加自定义HTML页面</a><time datetime="2025-01-16T15:59:59.000Z" title="发表于 2025-01-16 23:59:59">2025-01-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%8A%80%E6%9C%AF_final/" title="网络空间安全技术期末整理">网络空间安全技术期末整理</a><time datetime="2025-01-15T16:00:00.000Z" title="发表于 2025-01-16 00:00:00">2025-01-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E6%9C%9F%E6%9C%AB%E9%87%8D%E7%82%B9/" title="网络攻防技术期末重点">网络攻防技术期末重点</a><time datetime="2025-01-15T16:00:00.000Z" title="发表于 2025-01-16 00:00:00">2025-01-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/blog/2025/01/16/SCU/2024-2025%E5%AD%A6%E5%B9%B4/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2/%E7%BD%91%E7%BB%9C%E6%94%BB%E9%98%B2%E5%AE%9E%E9%AA%8C%E6%80%BB%E7%BB%93/" title="网络攻防技术实验总结">网络攻防技术实验总结</a><time datetime="2025-01-15T16:00:00.000Z" title="发表于 2025-01-16 00:00:00">2025-01-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/blog/2025/01/15/%E5%85%B6%E4%BB%96/Hexo%E5%BB%BA%E7%AB%99/Hexo/" title="Hexo+GithubPages建站">Hexo+GithubPages建站</a><time datetime="2025-01-15T15:59:59.000Z" title="发表于 2025-01-15 23:59:59">2025-01-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2025 By Hozenghan</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my blog!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
